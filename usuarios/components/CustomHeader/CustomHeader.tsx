@@ -23,7 +23,7 @@ export const CustomHeader = (props: CustomContainerProps) => {
                     </div>
                 </div>
 
-                /* Cabeçalho Principal */
+                // Cabeçalho Principal 
                 <header>
                     <div>
                         <div>
