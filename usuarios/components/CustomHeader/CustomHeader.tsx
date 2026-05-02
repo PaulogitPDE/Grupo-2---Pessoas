@@ -7,7 +7,7 @@ interface CustomContainerProps {
 export const CustomHeader = (props: CustomContainerProps) => {
         return (
             <>
-                /* Barra de Acessibilidade */
+                // Barra de Acessibilidade
                 <div >
                     <div >
                         <div >
