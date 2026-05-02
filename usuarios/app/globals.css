@@ -1,22 +1,4 @@
 @import "tailwindcss";
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 /* Reset css*/
     html, body, div, span, applet, object, iframe,
@@ -69,3 +51,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --cor-verde-agua: #348888;
+  --cor-verde-agua-claro: #d5f1ef;
+  --cor-laranja: #FA7F08;
+  --cor-escuro: #2d2d2d;
+  --cor-cinza: #707070;
+  --cor-branco: #ffffff;
+  --cor-vermelho: #F24405;
+  --cor-verde-petroleo: #348888; 
+  --cor-ciano-medio: #22BABB; 
+  --cor-ciano-claro:#9EF8EE; 
+  --cor-laranja-vibrante: lab(66.55% 40.45 72.21); 
+  --cor-laranja-avermelhado: #f24405;        
+  --bnt-laranja-vibrante-80: lab(66.55% 40.45 72.21 / 0.80); 
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
