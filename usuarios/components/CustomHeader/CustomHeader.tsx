@@ -1,11 +1,10 @@
-
-    import React from "react";
+import React from "react";
 
 interface CustomContainerProps {
   children: React.ReactNode[]
 }
 
-export default function CustomContainer(props: CustomContainerProps) {
+export const CustomHeader = (props: CustomContainerProps) => {
         return (
             <>
                 /* Barra de Acessibilidade */
