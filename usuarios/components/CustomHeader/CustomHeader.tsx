@@ -55,7 +55,7 @@ export const CustomHeader = () => {
 
       {/* Navegação */}
       <nav className="py-2">
-        <div className="container-fluid d-flex justify-content-between align-items-center" >
+        <div className="container-fluid d-flex justify-content-between align-items-center" id="nav" >
           <div className="d-flex align-items-center gap-3">
 
             <button className="btn btn-menu-custom d-flex flex-column align-items-center">
@@ -103,6 +103,21 @@ export const CustomHeader = () => {
 
       {/* ESTILOS LOCAIS */}
       <style jsx>{`
+        :root {
+          --cor-verde-agua: #348888;
+          --cor-verde-agua-claro: #d5f1ef;
+          --cor-laranja: #FA7F08;
+          --cor-escuro: #2d2d2d;
+          --cor-cinza: #707070;
+          --cor-branco: #ffffff;
+          --cor-vermelho: #F24405;
+          --cor-verde-petroleo: #348888; 
+          --cor-ciano-medio: #22BABB; 
+          --cor-ciano-claro:#9EF8EE; 
+          --cor-laranja-vibrante: lab(66.55% 40.45 72.21); 
+          --cor-laranja-avermelhado: #f24405;        
+          --bnt-laranja-vibrante-80: lab(66.55% 40.45 72.21 / 0.80); 
+        }
         .barra-nav {
             background: var(--cor-ciano-claro);
             border-radius: 18px;
@@ -189,7 +204,7 @@ export const CustomHeader = () => {
         
 
         .link-nav {
-            color: var(--color-verde-petroleo);
+            color: #000000;
             font-weight: 600;
             padding: 0.35rem 0.5rem;
             transition: color 0.3s;
@@ -197,8 +212,8 @@ export const CustomHeader = () => {
         }
 
         .link-nav:hover {
-            color: var(--color-verde-petroleo);
-            opacity: 0.8;
+            color: #000000;
+            opacity: 0.6;
         }
         .icone-social {
             width: 40px;
