@@ -238,6 +238,11 @@ export const CustomHeader = () => {
           align-items: center;
           justify-content: center;
         }
+        
+        #nav{
+          border-bottom: 3px solid rgba(52, 136, 136, 0.15);
+          padding-bottom: 10px;
+        }
       `}</style>
     </>
   );
