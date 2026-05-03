@@ -8,7 +8,7 @@ export const CustomFooter = () => {
       {/* TOPO */}
       <div className="rodape">
         <div className="rodape-topo">
-            <div className="container py-4">
+            <div className="py-4" style={{padding:"1em"}}>
             <div className="row align-items-center">
 
                 {/* ESQUERDA */}
@@ -64,7 +64,7 @@ export const CustomFooter = () => {
         </div>
         {/* BASE */}
         <div className="rodape-base text-white">
-            <div className="container py-3">
+            <div className=" py-3" style={{padding:"1em"}}>
             <div className="d-flex justify-content-between align-items-center">
 
                 <p className="mb-0">Nos siga nas redes sociais:</p>
