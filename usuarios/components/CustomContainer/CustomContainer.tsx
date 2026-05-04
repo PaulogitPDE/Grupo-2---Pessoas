@@ -1,5 +1,5 @@
 import { Prosto_One } from "next/font/google";
-import "./CustomContainer.css";
+import style from "./CustomContainer.module.css"
 
 type CustomContainerProps = {
   title: string;
@@ -8,13 +8,16 @@ type CustomContainerProps = {
 
 export default function CustomContainer(props: CustomContainerProps) {
   return (
-    <section className="container">
-      <div className="padding-container">
-        <div className="title-container">
-          <h1 className="title">{props.title}</h1>
+    <section className={style.container}>
+      <div className={style.padding_container}>
+        
+        <div className={style.title_container}>
+          <h1 className={style.title}>{props.title}</h1>
         </div>
 
-        {props.children}
+        <div className={style.inputs_container}>
+          {props.children}
+        </div>
       </div>
     </section>
   );
