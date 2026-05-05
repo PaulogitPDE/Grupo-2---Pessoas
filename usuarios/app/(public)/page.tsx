@@ -1,10 +1,9 @@
 'use client'
 
-import { CustomButtonIcon } from "@/components/CustomButtonIcon/CustomButtonIcon";
-import   CustomContainer from "@/components/CustomContainer/CustomContainer";
+import {CustomContainer} from "@/components/CustomContainer/CustomContainer";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
 import {CustomInputSenha} from "@/components/CustomInputSenha/CustomInputSenha";
-import visionOff from "@/public/img/vis_off.svg";
+import visionOff from "@/public/img/vis_off.svg";   
 
 export default function MainVisitante(){
     return(

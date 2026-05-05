@@ -1,6 +1,6 @@
 "use client";
+import style from "./CustomInputSenha.module.css";
 import { CustomInput } from "../CustomInput/CustomInput";
-import "./CustomInputSenha.css";
 import { useState } from "react";
 
 interface PropsCustomInputSenha {
