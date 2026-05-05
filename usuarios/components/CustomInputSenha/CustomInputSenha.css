@@ -1,7 +1,8 @@
 .inserir-senha-container{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 10px;
+
 }
 
 .btn-olho{
@@ -9,4 +10,5 @@
     border: none;
     border-radius: 12px;
     cursor: pointer;
+    margin-bottom: 1em;
 }

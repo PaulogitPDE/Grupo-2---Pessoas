@@ -12,13 +12,12 @@ interface PropsCustomInputSenha {
 export const  CustomInputSenha = ( props: PropsCustomInputSenha) => {
   const [mostrar, setMostrar] = useState(false);
   return (
-    <>
-      <div className="inserir-senha-container">
-        <CustomInput className="input-senha" label={props.label} type={mostrar ? "text" : "password"}/>
-          <button  type="button" className="btn-olho" onClick={() => setMostrar(!mostrar)}>
-            <img src={mostrar ? "/img/vis_on.svg" : "/img/vis_off.svg"} alt="Mostrar senha" className="img-olho" />
-          </button>
-      </div>
-    </>
+    
+    <div className="inserir-senha-container">
+      <CustomInput className="input-senha" label={props.label} type={mostrar ? "text" : "password"}/>
+        <button  type="button" className="btn-olho" onClick={() => setMostrar(!mostrar)}>
+          <img src={mostrar ? "/img/vis_on.svg" : "/img/vis_off.svg"} alt="Mostrar senha" />
+        </button>
+    </div>
   );
 }
