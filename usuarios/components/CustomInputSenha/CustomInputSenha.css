@@ -1,0 +1,12 @@
+.inserir-senha-container{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.btn-olho{
+    background-color: var(--cor-laranja);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}

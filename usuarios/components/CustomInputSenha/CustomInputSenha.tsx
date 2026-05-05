@@ -1,42 +1,24 @@
 "use client";
-
+import { CustomInput } from "../CustomInput/CustomInput";
+import "./CustomInputSenha.css";
 import { useState } from "react";
 
-type Props = {
+interface PropsCustomInputSenha {
   label: string;
   id: string;
   placeholder: string;
 };
 
-export default function CustomInputSenha({
-  label,
-  id,
-  placeholder,
-}: Props) {
+export const  CustomInputSenha = ( props: PropsCustomInputSenha) => {
   const [mostrar, setMostrar] = useState(false);
-
   return (
-    <div className="inputs-container">
-      <label htmlFor={id} className="label-login">
-        {label}
-      </label>
-
+    <>
       <div className="inserir-senha-container">
-        <input
-          type={mostrar ? "text" : "password"}
-          id={id}
-          className="input-login"
-          placeholder={placeholder}
-        />
-
-        <button
-          type="button"
-          className="btn-olho"
-          onClick={() => setMostrar(!mostrar)}
-        >
-          👁
-        </button>
+        <CustomInput className="input-senha" label={props.label} type={mostrar ? "text" : "password"}/>
+          <button  type="button" className="btn-olho" onClick={() => setMostrar(!mostrar)}>
+            <img src={mostrar ? "/img/vis_on.svg" : "/img/vis_off.svg"} alt="Mostrar senha" className="img-olho" />
+          </button>
       </div>
-    </div>
+    </>
   );
 }
