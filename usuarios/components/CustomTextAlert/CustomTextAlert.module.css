@@ -3,7 +3,7 @@
     color: var(--cor-branco);
     border-radius: 10px;
     text-align: center;
-    padding: 1em;
+    padding: 10px;
     max-width: 60vw;
-    margin: 0 auto;
+    margin: 10px;
 }
