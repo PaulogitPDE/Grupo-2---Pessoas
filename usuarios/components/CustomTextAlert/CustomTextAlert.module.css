@@ -1,0 +1,9 @@
+.containerAlert {
+    background-color: var(--cor-vermelho);
+    color: var(--cor-branco);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1em;
+    max-width: 60vw;
+    margin: 0 auto;
+}
