@@ -1,20 +1,21 @@
 'use client'
-import React from "react";
 import { useState } from "react";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
-import {CustomContainer} from "@/components/CustomContainer/CustomContainer";
+import { CustomContainerTitle } from "@/components/CustomContainerTitle/CustomContainerTitle";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
 import { CustomTextAlert } from "@/components/CustomTextAlert/CustomTextAlert";
 import { CustomButtonNS } from "@/components/CustomButtonNS/CustomButtonNS";
+import { useRouter } from 'next/navigation';
 
 
 
 export default function MainEsqSenha(){
   const [tipo, setTipo] = useState<'email' | 'sms'>('email');
+  const router = useRouter();
 
     return(
         <>
-            <CustomContainer title="Esqueceu sua senha?">
+            <CustomContainerTitle title="Esqueceu sua senha?">
                 <div className="container lead " style={{maxWidth: "700px", padding: "16px", fontSize: "30px"}}>
                     <p>Para redefinir sua senha, por favor, insira o <span style={{color:"var(--cor-vermelho)"}} className="fw-bold" >e-mail </span >ou <span style={{color:"var(--cor-vermelho)"}} className="fw-bold">número de telefone</span> cadastrado.</p>
                 </div>
@@ -52,9 +53,9 @@ export default function MainEsqSenha(){
                         <CustomTextAlert text="Enviaremos um link em seu E-mail ou SMS, para que você possa redefinir a sua senha!"/>
                 </div>
                 <div className="container" style={{padding:"2em"}}>
-                    <CustomButton title="enviar link" onClick={() => { window.location.href = '/Ref_senha'; }}/>
+                    <CustomButton title="enviar link" onClick={() => router.push('/Ref_senha')}/>
                 </div>  
-            </CustomContainer>
+            </CustomContainerTitle>
         </>
     );  
 }

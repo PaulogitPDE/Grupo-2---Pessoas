@@ -1,24 +1,16 @@
-import { Prosto_One } from "next/font/google";
-import style from "./CustomContainer.module.css";
+import style from './CustomContainer.module.css';
+import React from 'react';
 
-interface CustomContainerProps {
-  title: string;
-  children: React.ReactNode;
-};
+interface CustomContainerProps{
+    children: React.ReactNode;
+}
 
 export const CustomContainer = (props: CustomContainerProps) => {
-  return (
+    return(
     <section className={style.container}>
       <div className={style.padding_container}>
-        
-        <div className={style.title_container}>
-          <h1 className={style.title}>{props.title}</h1>
-        </div>
-
-        <div className={style.inputs_container}>
           {props.children}
-        </div>
       </div>
     </section>
-  );
+    );
 }

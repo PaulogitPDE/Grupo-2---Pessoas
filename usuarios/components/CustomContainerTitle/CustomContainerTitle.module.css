@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.padding_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--cor-branco);
+  min-width: 50%;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px 1px #00000050;
+  margin: 100px 0;
+  overflow: hidden;
+  padding-bottom:1em;
+
+}
+
+.title_container {
+  background-color: var(--cor-verde-agua);
+  width: 100%;
+  padding: 0.25em;
+}
+
+.title{
+  font-size: 30px;
+  text-align: center;
+  color: var(--cor-branco);
+}
+
