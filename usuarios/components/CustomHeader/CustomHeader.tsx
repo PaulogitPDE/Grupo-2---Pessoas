@@ -67,7 +67,7 @@ export const CustomHeader = () => {
                 <a href="#" className="text-decoration-none link-nav">Banco de Ração</a>
                 <a href="#" className="text-decoration-none link-nav">Educação</a>
                 <a href="#" className="text-decoration-none link-nav">Castração</a>
-                <a href="#" className="text-decoration-none link-nav">Entrar</a>
+                <a href="/" className="text-decoration-none link-nav">Entrar</a>
             </div>
           </div>
 

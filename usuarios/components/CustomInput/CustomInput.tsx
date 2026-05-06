@@ -5,7 +5,6 @@ import style from "./CustomInput.module.css";
 interface CustomInputProps{
     label: string;
     type: string;
-    className?: string;
 }
 
 export const CustomInput = (props: CustomInputProps) => {
