@@ -2,20 +2,15 @@
 import style from "./CustomButtonView.module.css";
 import { useState } from "react";
 
-interface PropsCustomButtonView {
-  label: string;
-  id: string;
-  placeholder: string;
+interface PropsCustomButtonView { 
+  onClick: () => void;
 };
 
 export const  CustomButtonView = ( props: PropsCustomButtonView) => {
   const [mostrar, setMostrar] = useState(false);
   return (
-    
-    <div className="inserir-senha-container">
-        <button  type="button" className="btn-olho" onClick={() => setMostrar(!mostrar)}>
+        <button  type="button" className={style.btn_olho} onClick={() => { props.onClick(); setMostrar(!mostrar); }} >
           <img src={mostrar ? "/img/vis_on.svg" : "/img/vis_off.svg"} alt="Mostrar senha" />
         </button>
-    </div>
   );
 }
