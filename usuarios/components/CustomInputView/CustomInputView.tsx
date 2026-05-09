@@ -6,8 +6,9 @@ import { CustomButtonView } from "../CustomButtonView/CustomButtonView";
 
 interface PropsCustomInputView {
   label: string;
-  id: string;
-  placeholder: string;
+  value?: string;
+  change?: (e: any) => void;
+  name?: string;
 };
 
 export const  CustomInputView = ( props: PropsCustomInputView) => {
@@ -15,7 +16,7 @@ export const  CustomInputView = ( props: PropsCustomInputView) => {
   return (
     
     <div className={style.inserir_senha_container}>
-      <CustomInput label={props.label} type={mostrar ? "text" : "password"}/>
+      <CustomInput label={props.label} type={mostrar ? "text" : "password"} change={props.change} name={props.name} value={props.value}/>
       <CustomButtonView onClick={() => setMostrar(!mostrar)} />  
     </div>
   );
