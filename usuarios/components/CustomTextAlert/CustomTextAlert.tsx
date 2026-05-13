@@ -9,7 +9,7 @@ export const CustomTextAlert = (props: CustomTextAlertProps) => {
 
     return(
         <div className={style.containerAlert}>
-            <img src="/img/foto_alerta.jpeg" alt="" className={style.foto_alerta} />
+            <img src="/img/foto_alerta.png" alt="" className={style.foto_alerta} />
             <p className={style.paragraph_alert}>{props.text}</p>
         </div>
     );

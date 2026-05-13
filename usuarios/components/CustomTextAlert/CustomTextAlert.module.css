@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: #fa810866;
+    width: 50%;
 }
 
 .paragraph_alert{
@@ -16,5 +18,7 @@
 }
 
 .foto_alerta{
-    width: 10%;
+    width: 15%;
+    height: 50%;
+    align-self: center;
 }
