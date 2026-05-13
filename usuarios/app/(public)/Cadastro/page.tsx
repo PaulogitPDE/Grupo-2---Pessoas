@@ -59,6 +59,8 @@ export default function Cadastro(){
                 <CustomInput type="text" label="Cidade"></CustomInput>
                 <CustomInput type="text" label="Estado"></CustomInput>
                 </div>
+                <CustomInput type="text" label="Complemento"/>
+                <CustomButton title="Cadastrar-se" onClick={() => { window.location.href = "/"; }}></CustomButton>
             </CustomContainer>
         </>
     );
