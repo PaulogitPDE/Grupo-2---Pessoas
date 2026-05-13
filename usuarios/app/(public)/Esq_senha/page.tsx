@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 
 
 
+
+
 export default function MainEsqSenha(){
   const [tipo, setTipo] = useState<'email' | 'sms'>('email');
   const router = useRouter();
@@ -49,10 +51,12 @@ export default function MainEsqSenha(){
                         )}
                     </div>
                 </div> 
-                <div className="container">
-                        <CustomTextAlert text="Enviaremos um link em seu E-mail ou SMS, para que você possa redefinir a sua senha!"/>
+                <div className="container" style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                    
+                    <CustomTextAlert text="Enviaremos um link em seu E-mail ou SMS, para que você possa redefinir a sua senha!"/>
                 </div>
                 <div className="container" style={{padding:"2em"}}>
+                    
                     <CustomButton title="enviar link" onClick={() => router.push('/Ref_senha')}/>
                 </div>  
             </CustomContainerTitle>

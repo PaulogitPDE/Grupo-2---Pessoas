@@ -47,7 +47,7 @@ export default function Cadastro(){
                 
                 <CustomInput type="text" label="Número de Telefone"></CustomInput>
                 <CustomInput type="text" label="E-mail"></CustomInput>
-                <CustomInputView id="senha" placeholder="Digite a sua Senha" label="Senha"></CustomInputView>
+                <CustomInputView label="Senha"></CustomInputView>
                 <CustomInputSearch id="CEP" placeholder="Digite seu CEP" label="CEP"></CustomInputSearch>
                 <div style={{display:"flex", flexDirection:"row", gap:"10px"}}>
                 <CustomInput type="text" label="Endereço"></CustomInput>
