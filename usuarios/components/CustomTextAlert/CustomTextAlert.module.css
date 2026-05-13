@@ -1,6 +1,5 @@
 .containerAlert {
-    background-color: var(--cor-vermelho);
-    color: var(--cor-branco);
+    color: #000000;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
