@@ -3,7 +3,7 @@ import React from "react";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
 import { CustomContainerTitle } from "@/components/CustomContainerTitle/CustomContainerTitle";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
-import {CustomInputView} from "@/components/CustomInputView/CustomInputView";   
+import { CustomInputView } from "@/components/CustomInputView/CustomInputView";   
 import { useRouter } from 'next/navigation';
 
 import { useFormik } from "formik";
