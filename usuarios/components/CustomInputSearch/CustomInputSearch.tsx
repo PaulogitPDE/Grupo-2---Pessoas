@@ -8,6 +8,7 @@ interface PropsCustomInputSearch {
   label: string;
   id: string;
   placeholder: string;
+  name?: string;
 };
 
 export const  CustomInputSearch = ( props: PropsCustomInputSearch) => {
@@ -15,7 +16,7 @@ export const  CustomInputSearch = ( props: PropsCustomInputSearch) => {
   return (
     
     <div className={style.inserir_senha_container}>
-      <CustomInput label={props.label} type={mostrar ? "text" : "password"}/>
+      <CustomInput label={props.label} name={props.name} />
       <CustomButtonSearch onClick={() => setMostrar(!mostrar)} />  
     </div>
   );

@@ -24,7 +24,7 @@ export default function Cadastro(){
                         </div>
                         <h2 className={style.title_container}>Dados Pessoais</h2>
                         <CustomInput type="text" label="Nome Completo"></CustomInput>
-                        <CustomInput type="text" label="CPF"></CustomInput>
+                        <CustomInput type="text" label="CPF" name="cpf"></CustomInput>
                         <CustomInput type="date" label="Data de Nascimento"></CustomInput>
                     </>
                 )}
@@ -39,25 +39,25 @@ export default function Cadastro(){
                         <h2 className={style.title_container}>Dados Empresariais</h2>
                         <CustomInput type="text" label="Razão Social"></CustomInput>
                         <CustomInput type="text" label="Nome Fantasia"></CustomInput>
-                        <CustomInput type="text" label="CNPJ"></CustomInput>
+                        <CustomInput type="text" label="CNPJ" name="cnpj"></CustomInput>
                     </>
                 )}
                     
                 
                 
-                <CustomInput type="text" label="Número de Telefone"></CustomInput>
+                <CustomInput type="text" label="Número de Telefone" name="telefone"></CustomInput>
                 <CustomInput type="text" label="E-mail"></CustomInput>
                 <CustomInputView label="Senha"></CustomInputView>
-                <CustomInputSearch id="CEP" placeholder="Digite seu CEP" label="CEP"></CustomInputSearch>
-                <div style={{display:"flex", flexDirection:"row", gap:"10px"}}>
-                <CustomInput type="text" label="Endereço"></CustomInput>
-                <CustomInput type="text" label="Número"></CustomInput>
-                <CustomInput type="text" label="Complemento"></CustomInput>
+                <CustomInputSearch id="CEP" placeholder="Digite seu CEP" label="CEP" name="cep"></CustomInputSearch>
+                <div style={{display:"flex", flexDirection:"row", gap:"10px", justifyContent: "baseline"}}>
+                    <CustomInput type="text" label="Endereço"></CustomInput>
+                    <CustomInput type="text" label="Número"></CustomInput>
+                    <CustomInput type="text" label="Complemento"></CustomInput>
                 </div>
                 <div style={{display:"flex", flexDirection:"row", gap:"10px"}}>
-                <CustomInput type="text" label="Bairro"></CustomInput>
-                <CustomInput type="text" label="Cidade"></CustomInput>
-                <CustomInput type="text" label="Estado"></CustomInput>
+                    <CustomInput type="text" label="Bairro"></CustomInput>
+                    <CustomInput type="text" label="Cidade"></CustomInput>
+                    <CustomInput type="text" label="Estado"></CustomInput>
                 </div>
                 <CustomInput type="text" label="Complemento"/>
                 <CustomButton title="Cadastrar-se" onClick={() => { window.location.href = "/"; }}></CustomButton>
