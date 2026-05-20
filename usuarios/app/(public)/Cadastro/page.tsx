@@ -21,8 +21,7 @@ export default function Cadastro(){
 
   const cadastroFormSchema = Yup.object({
     nome: Yup.string()
-    .required("Campo obrigatório!")
-    .min(3, "Mínimo de 3 caracteres"),
+    .required("Campo obrigatório!"),
     cpf: Yup.string()
     .required("Campo obrigatório!"),
     dataNasc: Yup.date()
@@ -82,20 +81,11 @@ export default function Cadastro(){
     validationSchema: cadastroFormSchema,
 
     onSubmit: (values) => {
-
+        
     }
 
   })
 
-  async function pesquisaCEP(){
-    let api = `https://viacep.com.br/ws/${cep}/json/`;
-    let pegarAPI = await fetch(api);
-    let endereco = await pegarAPI.json();
-
-    let rua = endereco.logradouro;
-    let cidade = endereco.localidade;
-    let bairro = endereco.bairro;
-}
 
   const router = useRouter();
 
@@ -128,7 +118,6 @@ export default function Cadastro(){
                             label="Nome Completo" 
                             name="nome"
                             value={formik.values.nome}
-                            error={formik.errors.nome}
                             change={formik.handleChange}
                             />
                             
@@ -137,7 +126,6 @@ export default function Cadastro(){
                             label="CPF" 
                             name="cpf"
                             value={formik.values.cpf}
-                            error={formik.errors.cpf}
                             change={formik.handleChange}
                             />
                             
@@ -145,8 +133,6 @@ export default function Cadastro(){
                             type="date" 
                             label="Data de Nascimento" 
                             name="dataNasc"
-                            value={formik.values.dataNasc}
-                            error={formik.errors.dataNasc}
                             change={formik.handleChange}
                             />
                             
@@ -175,18 +161,24 @@ export default function Cadastro(){
                             type="text" 
                             label="Razão Social" 
                             name="razaoSocial"
+                            value={formik.values.razaoSocial}
+                            change={formik.handleChange}
                             />
 
                             <CustomInput 
                             type="text" 
                             label="Nome Fantasia" 
                             name="nomeFantasia"
+                            value={formik.values.nomeFantasia}
+                            change={formik.handleChange}
                             />
 
                             <CustomInput 
                             type="text" 
                             label="CNPJ" 
                             name="cnpj"
+                            value={formik.values.cnpj}
+                            change={formik.handleChange}
                             />
 
                         </>
@@ -197,12 +189,16 @@ export default function Cadastro(){
                     <CustomInput 
                     type="text" 
                     label="Número de Telefone" 
-                    name="telefone" />
+                    name="telefone" 
+                    value={formik.values.telefone}
+                    change={formik.handleChange}/>
 
                     <CustomInput 
                     type="text" 
                     label="E-mail" 
-                    name="email" />
+                    name="email" 
+                    value={formik.values.email}
+                    change={formik.handleChange}/>
 
                     <CustomInputView 
                     label="Senha" 
@@ -212,7 +208,9 @@ export default function Cadastro(){
                     id="CEP" 
                     placeholder="Digite seu CEP" 
                     label="CEP" 
-                    name="cep" />
+                    name="cep"
+                    change={formik.handleChange}
+                    value={formik.values.cep}/>
 
                     <table>
                         <tbody>
@@ -223,6 +221,7 @@ export default function Cadastro(){
                                     type="text" 
                                     label="Endereço" 
                                     name="endereco" 
+                                    value={formik.values.endereco}
                                     change={formik.handleChange} 
                                     />
 
@@ -233,6 +232,7 @@ export default function Cadastro(){
                                     type="text" 
                                     label="Número" 
                                     name="numero" 
+                                    value={formik.values.numero}
                                     change={formik.handleChange} 
                                     />
 
@@ -245,6 +245,7 @@ export default function Cadastro(){
                                     type="text" 
                                     label="Bairro" 
                                     name="bairro" 
+                                    value={formik.values.bairro}
                                     change={formik.handleChange} 
                                     />
 
@@ -255,6 +256,7 @@ export default function Cadastro(){
                                     type="text" 
                                     label="Estado" 
                                     name="estado" 
+                                    value={formik.values.estado}
                                     change={formik.handleChange} 
                                     />
 
@@ -265,6 +267,7 @@ export default function Cadastro(){
                                     type="text" 
                                     label="Cidade" 
                                     name="cidade" 
+                                    value={formik.values.cidade}
                                     change={formik.handleChange} 
                                     />
 
@@ -274,7 +277,9 @@ export default function Cadastro(){
                     </table>
                     <CustomInput 
                     type="text" 
-                    label="Complemento"/>
+                    label="Complemento"
+                    change={formik.handleChange}
+                    value={formik.values.complemento}/>
                     <CustomButton 
                     title="Cadastrar-se" 
                     onClick={() => router.push("/Conta")}></CustomButton>

@@ -2,6 +2,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import style from "./CustomInput.module.css";
 import { IMaskInput } from 'react-imask';
+import { ErrorMessage } from 'formik';
 
 interface CustomInputProps{
     label: string;
@@ -16,34 +17,42 @@ interface CustomInputProps{
 
 export const CustomInput = (props: CustomInputProps) => {
 
+    const label = props.label;
+    const type = props.type;
+    const name = props.name;
+    const value = props.value;
+    const change = props.change;
+    const error = props.error;
+
     return(
         <>
            <FloatingLabel
             controlId="floatingInput"
-            label={props.label}
+            label={ label }
             className="mb-3"
             >
                 <Form.Control 
-                type={props.type} 
-                name={props.name} 
+                type={ type } 
+                name={ name } 
                 className={style.input} 
                 placeholder="name@example.com" 
-                value={props.value} 
-                style={props.name === "endereco" ? {width: "95%"} 
-                     : props.name === "bairro" ? {width: "90%"} 
-                     : props.name === "numero" ? {width: "100%"} 
-                     : props.name === "estado" ? {width: "90%"}
-                     : props.name === "cidade" ? {width: "100%"} 
+                value={ value } 
+                style={name === "endereco" ? {width: "95%"} 
+                     : name === "bairro" ? {width: "90%"} 
+                     : name === "numero" ? {width: "100%"} 
+                     : name === "estado" ? {width: "90%"}
+                     : name === "cidade" ? {width: "100%"} 
                      : undefined}
-                onChange={props.change}
-                isInvalid={!!props.error}
+                onChange={ change }
+                isInvalid={ !!error }
                 as={IMaskInput}
-                mask={props.name === "telefone" ? "+55 (00) 00000-0000" 
-                    : props.name === "cpf" ? "000.000.000-00" 
-                    : props.name === "cnpj" ? "00.000.000/0000-00"
+                mask={name === "telefone" ? "+55 (00) 00000-0000" 
+                    : name === "cpf" ? "000.000.000-00" 
+                    : name === "cnpj" ? "00.000.000/0000-00"
+                    : name === "cep" ? "00000-000"
                     : undefined
                     } />
-            </FloatingLabel> 
+            </FloatingLabel>
         </>
     );
 }
