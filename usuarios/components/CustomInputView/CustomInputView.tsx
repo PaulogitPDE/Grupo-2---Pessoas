@@ -9,6 +9,7 @@ interface PropsCustomInputView {
   value?: string;
   change?: (e: any) => void;
   name?: string;
+  id?: string;
 };
 
 export const  CustomInputView = ( props: PropsCustomInputView) => {

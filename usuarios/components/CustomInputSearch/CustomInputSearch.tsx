@@ -9,15 +9,16 @@ interface PropsCustomInputSearch {
   id: string;
   placeholder: string;
   name?: string;
+  onClick?: () => void;
 };
 
 export const  CustomInputSearch = ( props: PropsCustomInputSearch) => {
-  const [mostrar, setMostrar] = useState(false);
+  
   return (
     
     <div className={style.inserir_senha_container}>
-      <CustomInput label={props.label} name={props.name} />
-      <CustomButtonSearch onClick={() => setMostrar(!mostrar)} />  
+      <CustomInput label={props.label} type="text" name={props.name} />
+      <CustomButtonSearch onClick={() => props.onClick} />  
     </div>
   );
 }

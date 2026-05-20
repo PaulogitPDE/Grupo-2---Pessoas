@@ -11,8 +11,8 @@ export default function MainVisitante(){
             <CustomContainerTitle title="Redefinir senha">
                 <a href="/"><img src="/img/logo_Bem-EstarAnimal.png" alt="Logo" className="img-fluid" style={{ maxWidth: "350px", padding: "30px"}} /></a>
                 <div style={{textAlign:"left"}}>
-                    <CustomInputView label="Nova Senha" id="senha" placeholder="Digite sua senha"/>
-                    <CustomInputView label="Confirmar Senha" id="confirmar_senha" placeholder="Digite novamente sua senha"/>
+                    <CustomInputView label="Nova Senha" id="senha" />
+                    <CustomInputView label="Confirmar Senha" id="confirmar_senha"/>
                 </div>
                 <CustomButton title="Redefinir Senha" onClick={() => { router.push("/"); }} />
             </CustomContainerTitle>
