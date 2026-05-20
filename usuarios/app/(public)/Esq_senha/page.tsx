@@ -46,7 +46,7 @@ export default function MainEsqSenha(){
 
                         {tipo === 'sms' && (
                             <>
-                                <CustomInput label="Número de telefone" type="text" />
+                                <CustomInput label="Número de telefone" name="telefone" type="text" />
                             </>
                         )}
                     </div>

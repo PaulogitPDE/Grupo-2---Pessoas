@@ -14,15 +14,28 @@ export default function MainVisitante(){
 
     const router = useRouter();
 
-    // const loginFormSchema = Yup.object({
-    //     username: 
-    // })
+    const loginFormSchema = Yup.object({
+        username: Yup.string()
+        .required("Campo obrigatório!")
+        .min(3, "Mínimo de 3 caracteres!")
+        .max(5),
+        password: Yup.string()
+        .required("Campo obrigatório!")
+        .min(3, "Mínimo de 3 caracteres!")
+        .max(5),
+    });
 
-    const formik = useFormik({
+    interface ILoginForm{
+        username?: string;
+        password?: string;
+    };
+
+    const formik = useFormik<ILoginForm>({
         initialValues: {
-            user: "",
-            password: "",
+
         },
+        validationSchema: loginFormSchema,
+
         onSubmit: (values) => {
             console.log(`Dados: ${JSON.stringify(values)}`);
         }
@@ -37,8 +50,8 @@ export default function MainVisitante(){
                         <CustomInput 
                             label="E-mail | CPF | CNPJ" 
                             type="text" 
-                            name="user"
-                            value={formik.values.user} 
+                            name="username"
+                            value={formik.values.username} 
                             change={formik.handleChange}/>
                         <CustomInputView 
                             label="Senha" 
