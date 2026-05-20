@@ -32,7 +32,7 @@ export const CustomInput = (props: CustomInputProps) => {
                 mask={props.name === "telefone" ? "+55 (00) 00000-0000" 
                     : props.name === "cpf" ? "000.000.000-00" 
                     : props.name === "cnpj" ? "00.000.000/0000-00" 
-                    : props.name === "cep" ? "00000-000" 
+                    : props.name === "cep" ? "00000-000"
                     : undefined
                     } />
             </FloatingLabel> 

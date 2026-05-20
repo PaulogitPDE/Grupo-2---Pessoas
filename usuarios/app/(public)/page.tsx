@@ -6,11 +6,17 @@ import { CustomInput } from "@/components/CustomInput/CustomInput";
 import { CustomInputView } from "@/components/CustomInputView/CustomInputView";   
 import { useRouter } from 'next/navigation';
 
+import * as Yup from "yup";
+
 import { useFormik } from "formik";
 
 export default function MainVisitante(){
 
     const router = useRouter();
+
+    // const loginFormSchema = Yup.object({
+    //     username: 
+    // })
 
     const formik = useFormik({
         initialValues: {
