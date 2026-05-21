@@ -11,6 +11,7 @@ export default function Conta(){
                     label="Nome completo"
                     type="text"
                     value="Theo Marchetti Barcelos"/>
+                    <input type="file" />
             </CustomContainerProfile>
         </>
     );
