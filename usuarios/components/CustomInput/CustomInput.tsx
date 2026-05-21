@@ -1,3 +1,4 @@
+'use client'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import style from "./CustomInput.module.css";
