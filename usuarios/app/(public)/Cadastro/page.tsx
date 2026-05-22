@@ -6,6 +6,7 @@ import { CustomInputView } from "@/components/CustomInputView/CustomInputView";
 import { useState } from "react";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
 import { CustomButtonNS } from "@/components/CustomButtonNS/CustomButtonNS";
+import { CustomCheckbox } from "@/components/CustomCheckbox/CustomCheckbox"
 import { CustomInputSearch } from "@/components/CustomInputSearch/CustomInputSearch";
 import { useRouter } from "next/navigation";
 
@@ -280,6 +281,9 @@ export default function Cadastro(){
                     label="Complemento"
                     change={formik.handleChange}
                     value={formik.values.complemento}/>
+                    
+                    <CustomCheckbox text="Obhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhlá"></CustomCheckbox>
+                    
                     <CustomButton 
                     title="Cadastrar-se" 
                     onClick={() => router.push("/Conta")}></CustomButton>
