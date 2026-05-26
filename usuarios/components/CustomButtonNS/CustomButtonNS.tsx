@@ -5,9 +5,12 @@ interface CustomButtonProps{
     onClick?: () => void;
 }
 export const CustomButtonNS = (props: CustomButtonProps) => {
+
+    const {title, onClick} = props;
+
     return(
-        <button className={style.btn_claro} onClick={props.onClick}>
-            {props.title}
-        </button>
+        <button className={style.btn_claro} onClick={ onClick }>
+            { title }
+        </button> 
     );
 }

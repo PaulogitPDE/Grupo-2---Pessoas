@@ -6,16 +6,19 @@ interface CustomContainerProps {
 };
 
 export const CustomContainerTitle = (props: CustomContainerProps) => {
+
+  const {title, children} = props;
+
   return (
     <section className={style.container}>
       <div className={style.padding_container}>
         
         <div className={style.title_container}>
-          <h1 className={style.title}>{props.title}</h1>
+          <h1 className={style.title}>{ title }</h1>
         </div>
 
         <div className={style.inputs_container}>
-          {props.children}
+          { children }
         </div>
       </div>
     </section>

@@ -12,18 +12,12 @@ interface CustomInputProps{
     value?: string;
     name?: string;
     mask?: string;
-    id?: string;
     error?: string;
 }
 
 export const CustomInput = (props: CustomInputProps) => {
 
-    const label = props.label;
-    const type = props.type;
-    const name = props.name;
-    const value = props.value;
-    const change = props.change;
-    const error = props.error;
+    const {label, type, name, value, change, error} = props;
 
     return(
         <>

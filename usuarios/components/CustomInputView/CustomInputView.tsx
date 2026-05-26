@@ -14,10 +14,13 @@ interface PropsCustomInputView {
 
 export const  CustomInputView = ( props: PropsCustomInputView) => {
   const [mostrar, setMostrar] = useState(false);
+
+  const {label, change, name, value} = props;
+
   return (
     
     <div className={style.inserir_senha_container}>
-      <CustomInput label={props.label} type={mostrar ? "text" : "password"} change={props.change} name={props.name} value={props.value}/>
+      <CustomInput label={ label } type={mostrar ? "text" : "password"} change={ change } name={ name } value={ value }/>
       <CustomButtonView onClick={() => setMostrar(!mostrar)} />  
     </div>
   );

@@ -6,10 +6,13 @@ interface CustomContainerProps{
 }
 
 export const CustomContainer = (props: CustomContainerProps) => {
+
+    const children = props.children;
+
     return(
     <section className={style.container}>
       <div className={style.padding_container}>
-          {props.children}
+          { children }
       </div>
     </section>
     );

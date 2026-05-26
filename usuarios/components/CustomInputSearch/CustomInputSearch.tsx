@@ -16,16 +16,13 @@ interface PropsCustomInputSearch {
 
 export const  CustomInputSearch = ( props: PropsCustomInputSearch) => {
 
-  const label = props.label;
-  const name = props.name;
-  const change = props.change;
-  const value = props.value;
+  const {label, name, change, value, onClick} = props;
   
   return (
     
     <div className={style.inserir_senha_container}>
       <CustomInput label={ label } type="text" name={ name } value={ value } change={ change } />
-      <CustomButtonSearch onClick={() => props.onClick} />  
+      <CustomButtonSearch onClick={() => onClick} />  
     </div>
   );
 }

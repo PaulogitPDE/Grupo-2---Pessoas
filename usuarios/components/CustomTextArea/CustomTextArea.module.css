@@ -1,0 +1,14 @@
+.textArea{
+    font-size: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 10px;
+}
+
+.textArea:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #348888
+}

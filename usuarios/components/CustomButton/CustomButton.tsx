@@ -5,9 +5,12 @@ interface CustomButtonProps{
     type?: "button" | "submit" | "reset";
 }
 export const CustomButton = (props: CustomButtonProps) => {
+
+    const {onClick, type, title} = props;
+
     return(
-        <button className={style.btn_laranja} onClick={props.onClick} type={props.type}>
-            {props.title}
+        <button className={style.btn_laranja} onClick={ onClick } type={ type }>
+            { title }
         </button>
     );
 }
