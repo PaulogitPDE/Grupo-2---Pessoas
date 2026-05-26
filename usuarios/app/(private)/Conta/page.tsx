@@ -1,6 +1,7 @@
 import { CustomContainer } from "@/components/CustomContainer/CustomContainer";
 import { CustomContainerProfile } from "@/components/CustomContainerProfile/CustomContainerProfile";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
+import { CustomProfilePicture } from "@/components/CustomProfilePicture/CustomProfilePicture";
 
 export default function Conta(){
     return(
@@ -11,7 +12,7 @@ export default function Conta(){
                     label="Nome completo"
                     type="text"
                     value="Theo Marchetti Barcelos"/>
-                    <input type="file" />
+                    <CustomProfilePicture></CustomProfilePicture>
             </CustomContainerProfile>
         </>
     );

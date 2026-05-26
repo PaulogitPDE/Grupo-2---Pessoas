@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 
 import { useFormik } from "formik";
 import * as Yup from"yup";
+import { Span } from "next/dist/trace";
+import { discoverValidationDepths } from "next/dist/server/app-render/instant-validation/instant-validation";
 
 
 
@@ -282,7 +284,17 @@ export default function Cadastro(){
                     change={formik.handleChange}
                     value={formik.values.complemento}/>
                     
-                    <CustomCheckbox text="Obhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhlá"></CustomCheckbox>
+                    <CustomCheckbox 
+
+                        id="" 
+                        label={
+                                <span>
+                                    Eu declaro que li e aceito os <a href="">Termos de Uso</a> e <a href="">Política de Privacidade</a>
+                                </span>
+                        }
+                        value="">
+
+                    </CustomCheckbox>
                     
                     <CustomButton 
                     title="Cadastrar-se" 
