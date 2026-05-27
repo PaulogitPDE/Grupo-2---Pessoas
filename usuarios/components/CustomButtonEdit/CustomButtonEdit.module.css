@@ -1,0 +1,7 @@
+.btn_edit{
+    background-color: var(--cor-laranja);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 1em;
+}

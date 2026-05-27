@@ -13,11 +13,12 @@ interface CustomInputProps{
     name?: string;
     mask?: string;
     error?: string;
+    readOnly?: boolean;
 }
 
 export const CustomInput = (props: CustomInputProps) => {
 
-    const {label, type, name, value, change, error} = props;
+    const {label, type, name, value, change, error, readOnly} = props;
 
     return(
         <>
@@ -46,7 +47,8 @@ export const CustomInput = (props: CustomInputProps) => {
                     : name === "cnpj" ? "00.000.000/0000-00"
                     : name === "cep" ? "00000-000"
                     : undefined
-                    } />
+                    } 
+                readOnly={readOnly !== undefined ? readOnly : name === "nomePerfil"}/>
             </FloatingLabel>
         </>
     );
