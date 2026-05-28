@@ -63,7 +63,7 @@ export const CustomHeader = () => {
               <small>Menu</small>
             </button>
             <div className=" barra-nav">
-                <a href="#" className="text-decoration-none link-nav">Adote</a>
+                <a href="/Form_Adocao" className="text-decoration-none link-nav">Adote</a>
                 <a href="#" className="text-decoration-none link-nav">Banco de Ração</a>
                 <a href="#" className="text-decoration-none link-nav">Educação</a>
                 <a href="#" className="text-decoration-none link-nav">Castração</a>

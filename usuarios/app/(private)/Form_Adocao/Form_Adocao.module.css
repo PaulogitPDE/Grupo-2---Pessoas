@@ -1,0 +1,17 @@
+.title_cad{
+    color: #348888;
+    text-align: center;
+    margin: 40px;
+}
+.title_container{
+    color: #348888;
+    margin-bottom: 2rem;
+}
+
+.container_buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
