@@ -11,37 +11,39 @@ interface CustomInputEditProps{
     onClick?: () => void;
     value: string;
     name?: string;
+    change?: (e: any) => void;
 }
 
 export const CustomInputEdit = (props: CustomInputEditProps) => {
 
     const [isEditable, setIsEditable] = useState(false);
 
-    const [mostrar, setMostrar] = useState(true);
-
-
-    const handleButtonClick = () => {
-        
+    const handleButtonEdit = () => {
         setIsEditable(true);
-
-
     }
 
-    const {label, type, onClick, value, name} = props;
+    const handleButtonSave = () => {
+        setIsEditable(false)
+    };    
+
+    const {label, type, onClick, value, name, change} = props;
 
     return(
         <>
             <div className={style.input_edit}>
-                <CustomInput 
-                    label={ label } 
-                    type={ type } 
-                    value={ value } 
-                    name={ name }
-                    readOnly={isEditable ? false : undefined} ></CustomInput>
-                <CustomButtonEdit src={isEditable === true ? "/img/cancel.svg" : "/img/edit.svg"} onClick={ handleButtonClick }></CustomButtonEdit>
+                <div style={{width: "100%"}}>
+                    <CustomInput
+                        label={ label }
+                        type={ type }
+                        value={ value }
+                        name={ name }
+                        readOnly={isEditable ? false : undefined} 
+                        change={ change }></CustomInput>
+                </div>
+                <CustomButtonEdit src={isEditable === true ? "/img/cancel.svg" : "/img/edit.svg"} onClick={ handleButtonEdit } />
             </div>
-            <div style={isEditable === true ? {display: "flex", justifyContent: "center"} : {display: "none"}}>
-                <CustomButton title="Salvar"></CustomButton>
+            <div style={isEditable === true ? {display: "flex", justifyContent: "center", marginBottom: "10px"} : {display: "none"}}>
+                <CustomButton title="Salvar" onClick={ handleButtonSave }></CustomButton>
             </div>
         </>
     );

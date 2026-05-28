@@ -37,7 +37,8 @@ export const CustomInput = (props: CustomInputProps) => {
                      : name === "bairro" ? {width: "90%"} 
                      : name === "numero" ? {width: "100%"} 
                      : name === "estado" ? {width: "90%"}
-                     : name === "cidade" ? {width: "100%"} 
+                     : name === "cidade" ? {width: "100%"}
+                     : name === "nomePerfil" ? {width: "100%"}
                      : undefined}
                 onChange={ change }
                 isInvalid={ !!error }
