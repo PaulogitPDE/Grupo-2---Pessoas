@@ -9,9 +9,9 @@ interface CustomInputEditProps{
     label: string;
     type: string;
     onClick?: () => void;
-    value: string;
+    value?: string;
     name?: string;
-    change?: (e: any) => void;
+    change?: (e: string) => void;
 }
 
 export const CustomInputEdit = (props: CustomInputEditProps) => {

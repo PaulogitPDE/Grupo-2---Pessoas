@@ -34,10 +34,10 @@ export const CustomInput = (props: CustomInputProps) => {
                 placeholder="name@example.com" 
                 value={ value } 
                 style={name === "endereco" ? {width: "95%"} 
-                     : name === "bairro" ? {width: "90%"} 
-                     : name === "numero" ? {width: "100%"} 
+                     : name === "bairro" ? {width: "100%"} 
+                     : name === "numero" ? {width: "95%"} 
                      : name === "estado" ? {width: "90%"}
-                     : name === "cidade" ? {width: "100%"}
+                     : name === "cidade" ? {width: "90%"}
                      : name === "nomePerfil" ? {width: "100%"}
                      : undefined}
                 onChange={ change }

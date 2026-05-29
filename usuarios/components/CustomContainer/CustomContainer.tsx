@@ -7,7 +7,7 @@ interface CustomContainerProps{
 
 export const CustomContainer = (props: CustomContainerProps) => {
 
-    const children = props.children;
+    const {children} = props;
 
     return(
     <section className={style.container}>

@@ -8,6 +8,7 @@ interface PropsCustomButtonSearch {
 
 export const  CustomButtonSearch = ( props: PropsCustomButtonSearch) => {
   const [mostrar, setMostrar] = useState(true);
+
   return (
         <button type="button" className={style.btn_olho} onClick={() => props.onClick()} >
           <img src="/img/lupa.svg" alt="Mostrar senha" />

@@ -27,13 +27,13 @@ export const CustomProfilePicture = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', padding: '20px' }}>
+        <div style={{ textAlign: 'center'}}>
         <h3>Edite sua Foto</h3>
         <div 
             onClick={triggerFileInput} 
             style={{
-            width: '200px',
-            height: '200px',
+            width: '300px',
+            height: '300px',
             borderRadius: '50%',
             overflow: 'hidden',
             margin: '0 auto',

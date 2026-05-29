@@ -17,6 +17,8 @@ interface PropsCustomInputSearch {
 export const  CustomInputSearch = ( props: PropsCustomInputSearch) => {
 
   const {label, name, change, value, onClick} = props;
+
+  
   
   return (
     
