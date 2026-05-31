@@ -19,6 +19,7 @@ import { CustomSelect } from "@/components/CustomSelect/CustomSelect";
 export default function Cadastro(){
 
   const [tipo, setTipo] = useState<'PF' | 'PJ'>('PF');
+  const [cep, setCep] = useState("");
 
   const cadastroFormSchema = Yup.object({
     nome: Yup.string()
@@ -165,8 +166,7 @@ export default function Cadastro(){
                                 />
                 
                             </>
-                        )}
-                
+                        )}        
                 
                         {(tipo === 'PJ') && (
                             <>
@@ -204,8 +204,6 @@ export default function Cadastro(){
                                 />
                             </>
                         )}
-                
-                
                 
                         <CustomInput
                         type="text"
