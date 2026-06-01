@@ -117,7 +117,7 @@ export default function Form_Adocao() {
 
           <CustomInput
             label="Quantas pessoas compõem a sua família?"
-            type="number"
+            type="double"
             name="QND_Pessoas"
           />
                

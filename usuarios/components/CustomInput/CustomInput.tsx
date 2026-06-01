@@ -29,6 +29,7 @@ export const CustomInput = (props: CustomInputProps) => {
             >
                 <Form.Control 
                 type={ type } 
+                step={ type == "number" ? "0.01": undefined}
                 name={ name } 
                 className={style.input} 
                 placeholder="name@example.com" 
