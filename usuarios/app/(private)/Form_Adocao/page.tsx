@@ -1,82 +1,143 @@
 'use client';
+
 import { CustomContainer } from "@/components/CustomContainer/CustomContainer";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
-import style from './Form_Adocao.module.css';
-import { CustomInputView } from "@/components/CustomInputView/CustomInputView";
-import { useState } from "react";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
-import { CustomButtonNS } from "@/components/CustomButtonNS/CustomButtonNS";
-import { CustomCheckbox } from "@/components/CustomCheckbox/CustomCheckbox"
-import { CustomInputSearch } from "@/components/CustomInputSearch/CustomInputSearch";
-import { useRouter } from "next/navigation";
+import { CustomSelect } from "@/components/CustomSelect/CustomSelect";
+import style from './Form_Adocao.module.css';
 
-import { useFormik } from "formik";
-import * as Yup from"yup";
-import { Span } from "next/dist/trace";
-import { discoverValidationDepths } from "next/dist/server/app-render/instant-validation/instant-validation";
+import { useFormik, FormikProvider } from "formik";
+import * as Yup from "yup";
+import { CustomTextArea } from "@/components/CustomTextArea/CustomTextArea";
 
+export default function Form_Adocao() {
 
-export default function Form_Adocao(){
-  const Form_AdocaoFormSchema = Yup.object({
-    QND_Animais: Yup.string()
-    .required("Campo obrigatório!"),
-    Adotou: Yup.string()
-    .required("Campo obrigatório!"),
-    Renda_Familiar: Yup.string()
-    .required("Campo obrigatório!"),
-    QND_Crianca: Yup.string()
-    .required("Campo obrigatório!"),
-    complemento: Yup.string()
-    .required("Campo obrigatório!"),
-  })
+  interface IFormAdocaoForm {
+    Adotou: string;
+    QND_Adocoes: number;
 
-  interface IForm_AdocaoForm{
-    QND_Animais?: string;
-    Adotou?: string;
-    Renda_Familiar?: string;
-    QND_Crianca?: string;
-    complemento?: string;
+    PossuiAnimais: string;
+    QND_Animais: number;
+
+    PossuiCriancas: string;
+    QND_Criancas: number;
+
+    Renda_Familiar: string;
+    complemento: string;
   }
 
-  const formik = useFormik<IForm_AdocaoForm>({
-    initialValues: {
+  const FormAdocaoSchema = Yup.object({
+    Adotou: Yup.string().required("Campo obrigatório!"),
+    PossuiAnimais: Yup.string().required("Campo obrigatório!"),
+    PossuiCriancas: Yup.string().required("Campo obrigatório!"),
+    Renda_Familiar: Yup.string().required("Campo obrigatório!"),
+    complemento: Yup.string().required("Campo obrigatório!")
+  });
 
+  const formik = useFormik<IFormAdocaoForm>({
+    initialValues: {
+      Adotou: "",
+      QND_Adocoes: 0,
+
+      PossuiAnimais: "",
+      QND_Animais: 0,
+
+      PossuiCriancas: "",
+      QND_Criancas: 0,
+
+      Renda_Familiar: "",
+      complemento: ""
     },
 
-    validationSchema: Form_AdocaoFormSchema,
+    validationSchema: FormAdocaoSchema,
 
     onSubmit: (values) => {
-        
     }
+  });
 
-  })
+  const opcoesSimNao = [
+    { id: "1", value: "Sim", label: "Sim" },
+    { id: "2", value: "Nao", label: "Não" }
+  ];
 
+  return (
+    <FormikProvider value={formik}>
+      <form onSubmit={formik.handleSubmit}>
+        <h1 className={style.title_cad}>Formulário de Adoção</h1>
 
-  const router = useRouter();
+        <CustomContainer>
+          
+          <CustomSelect
+            label="Já adotou algum animal anteriormente?"
+            options={opcoesSimNao}
+            name="Adotou"
+          />
 
+          {formik.values.Adotou === "Sim" && (
+            <CustomInput
+              type="number"
+              label="Informe a quantidade:"
+              name="QND_Adocoes"
+              change={formik.handleChange}
+              value={formik.values.QND_Adocoes}
+            />
+          )}
 
-    return(
-        <>
-            <form onSubmit={formik.handleSubmit}>
-                <h1 className={style.title_cad}>Formulario de Adoção</h1>
-                <CustomContainer>
-                    <CustomCheckbox
-                      label="Quantos animais você tem?"
-                      value="QND_Animais"
-                      id="QND_Animais"
-                    />
-                    <CustomInput 
-                      type="text" 
-                      label="Complemento"
-                      change={formik.handleChange}
-                      value={formik.values.complemento}
-                    />
-                    <CustomButton 
-                    title="Enviar" 
-                    onClick={() => router.push("/Conta")}></CustomButton>
-                </CustomContainer>
-            </form>
-        </>
-    );
+          <CustomSelect
+            label="Você possui outros animais de estimação?"
+            options={opcoesSimNao}
+            name="PossuiAnimais"
+          />
 
+          {formik.values.PossuiAnimais === "Sim" && (
+            <CustomInput
+              type="number"
+              label="Informe a quantidade:"
+              name="QND_Animais"
+              change={formik.handleChange}
+              value={formik.values.QND_Animais}
+            />
+          )}
+
+          <CustomSelect
+            label="Possui crianças em casa?"
+            options={opcoesSimNao}
+            name="PossuiCriancas"
+          />
+
+          {formik.values.PossuiCriancas === "Sim" && (
+            <CustomInput
+              type="number"
+              label="Informe a quantidade:"
+              name="QND_Criancas"
+              change={formik.handleChange}
+              value={formik.values.QND_Criancas}
+            />
+          )}
+
+          <CustomInput
+            label="Quantas pessoas compõem a sua família?"
+            type="number"
+            name="QND_Pessoas"
+          />
+               
+          <CustomInput 
+            label="Informe a sua renda familiar"
+            type="number"
+            name="Renda_Familiar"
+          />
+
+          <CustomTextArea 
+            label="Escreva sobre o motivo da adoção!!"
+          />
+
+          <CustomButton
+            title="Enviar"
+            type="submit"
+          />
+
+        </CustomContainer>
+      </form>
+    </FormikProvider>
+  );
 }

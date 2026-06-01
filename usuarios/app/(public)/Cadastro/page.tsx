@@ -240,7 +240,6 @@ export default function Cadastro(){
                                         />
                                     </td>
                                     <td>
-
                                         <CustomSelect
                                         label="Estado"
                                         name="estado"

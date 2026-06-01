@@ -9,7 +9,7 @@ interface CustomInputProps{
     label: string;
     type: string;
     change?: (e: any) => void;
-    value?: string;
+    value?: string | number;
     name?: string;
     mask?: string;
     error?: string;
