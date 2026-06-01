@@ -1,6 +1,6 @@
 'use client'
 import { CustomFooter } from "@/components/CustomFooter/CustomFooter";
-import { CustomHeader } from "@/components/CustomHeader/CustomHeader";
+import { CustomHeader} from "@/components/CustomHeader/CustomHeader";
 import React from "react";
 
 interface MainLayoutProps{
@@ -10,7 +10,7 @@ interface MainLayoutProps{
 export default function MainLayout(props: MainLayoutProps){
   return (
     <>
-      <CustomHeader />
+      <CustomHeader/>
         {props.children}
       <CustomFooter />
     </>
