@@ -14,11 +14,12 @@ interface CustomInputProps{
     mask?: string;
     error?: string;
     readOnly?: boolean;
+    step?: string;
 }
 
 export const CustomInput = (props: CustomInputProps) => {
 
-    const {label, type, name, value, change, error, readOnly} = props;
+    const {label, type, name, value, change, error, readOnly, step} = props;
 
     return(
         <>
@@ -29,7 +30,7 @@ export const CustomInput = (props: CustomInputProps) => {
             >
                 <Form.Control 
                 type={ type } 
-                step={ type == "number" ? "0.01": undefined}
+                step={ step }
                 name={ name } 
                 className={style.input} 
                 placeholder="name@example.com" 

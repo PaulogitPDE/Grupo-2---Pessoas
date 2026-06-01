@@ -59,7 +59,7 @@ export default function MainVisitante(){
                             value={formik.values.password} 
                             change={formik.handleChange} />
                     </div>
-                    <CustomButton title="FAZER LOGIN" type="submit"  onClick={() => router.push("/admin")}/>
+                    <CustomButton title="FAZER LOGIN" type="submit" name="redefSenhaConta"  onClick={() => router.push("/admin")}/>
                     <br></br>
                     <br></br>
                     <p><a href="/Esq_senha" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Esqueceu sua senha?</a></p>

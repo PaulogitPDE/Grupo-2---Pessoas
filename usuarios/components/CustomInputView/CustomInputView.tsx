@@ -20,7 +20,13 @@ export const  CustomInputView = ( props: PropsCustomInputView) => {
   return (
     
     <div className={style.inserir_senha_container}>
-      <CustomInput label={ label } type={mostrar ? "text" : "password"} change={ change } name={ name } value={ value }/>
+      <CustomInput 
+        label={ label } 
+        type={mostrar ? "text" : "password"} 
+        change={ change } 
+        name={ name } 
+        value={ value }
+        readOnly={name === "senhaConta" ? true : false}/>
       <CustomButtonView onClick={() => setMostrar(!mostrar)} />  
     </div>
   );
