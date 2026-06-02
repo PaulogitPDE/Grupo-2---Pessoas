@@ -9,8 +9,14 @@ import style from './Form_Adocao.module.css';
 import { useFormik, FormikProvider } from "formik";
 import * as Yup from "yup";
 import { CustomTextArea } from "@/components/CustomTextArea/CustomTextArea";
+import { useState } from "react";
 
 export default function Form_Adocao() {
+  interface IValidacao {
+      show ?: boolean;
+      message ?: string;
+      variante ?: "success" | "error";
+  }
 
   interface IFormAdocaoForm {
     Adotou: string;
@@ -34,6 +40,7 @@ export default function Form_Adocao() {
     complemento: Yup.string().required("Campo obrigatório!")
   });
 
+  const [validacao, setValidacao] = useState<IValidacao>();
   const formik = useFormik<IFormAdocaoForm>({
     initialValues: {
       Adotou: "",
