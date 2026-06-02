@@ -156,6 +156,8 @@
   overflow: hidden;
   border-top: 10px solid var(--cor-ciano-claro);
   margin-top: -4px;
+
+  z-index: 990;
 }
 
 
