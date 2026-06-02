@@ -25,37 +25,28 @@ export default function admin() {
                                     value={0}  
                               />
                             </td>
-                            <td>
-                                <CustomInput
-                                    label="Estado"
-                                    name="estado"
-                                    type="text"
-                                />
+                            <td >
+                                <CustomButtonNotification
+                                    text="Cadastro de Animal"
+                                    value={20}  
+                              />
                             </td>
+                           
                         </tr>
                         <tr>
-                            <td>
-                                <CustomInput
-                                    type="text"
-                                    label="Número"
-                                    name="numero"
-                                />
-                            </td>
-                            <td>
-                                <CustomInput
-                                    type="text"
-                                    label="Cidade"
-                                    name="cidade"
-                                />  
-                            </td>
-                            <td>
-                                    
-                                <CustomInput
-                                    type="text"
-                                    label="Bairro"
-                                    name="bairro"
-                                />
-                            </td>
+                            
+                          <td>
+                            <CustomButtonNotification 
+                              text="Banco de Ração"
+                              value={2}
+                            /> 
+                          </td>
+                          <td>
+                            <CustomButtonNotification
+                              text="Gestão de pessoas"
+                              value={32}
+                            />
+                          </td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,12 +1,13 @@
 .noticationContainer{
   display: flex;
   flex-direction: row;
+  justify-content: center;
   background-color: var(--cor-verde-petroleo);
 
   border-radius: 20px;
   box-shadow: 1px 1px 10px 1px #00000050;
   padding: 10px;
-
+  margin: 5px 10px;
   color: var(--cor-verde-agua-claro);
   transition: 0.5s ;
 }
