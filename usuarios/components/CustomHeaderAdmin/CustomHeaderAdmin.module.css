@@ -1,0 +1,227 @@
+:root {
+    --cor-verde-agua: #348888;
+    --cor-verde-agua-claro: #d5f1ef;
+    --cor-laranja: #FA7F08;
+    --cor-escuro: #2d2d2d;
+    --cor-cinza: #707070;
+    --cor-branco: #ffffff;
+    --cor-vermelho: #F24405;
+    --cor-verde-petroleo: #348888; 
+    --cor-ciano-medio: #22BABB; 
+    --cor-ciano-claro:#9EF8EE; 
+    --cor-laranja-vibrante: lab(66.55% 40.45 72.21); 
+    --cor-laranja-avermelhado: #f24405;        
+    --bnt-laranja-vibrante-80: lab(66.55% 40.45 72.21 / 0.80); 
+}
+.barra-nav {
+    background: var(--cor-ciano-claro);
+    border-radius: 18px;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    margin-left: -1rem;
+    min-height: 40px;
+    z-index: 0;
+}
+.btnAcessibilidade {
+    background: var(--background);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-vermelho);
+    color: var(--cor-vermelho);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnAcessibilidade:hover {
+    background: var(--cor-vermelho);
+    color: var(--cor-branco);
+}
+.btnContraste {
+    position: relative;
+    overflow: hidden;
+}
+
+.btnContraste::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--cor-vermelho);
+    z-index: 1;
+}
+
+.btnContraste .material-symbols-rounded {
+    position: relative;
+    z-index: 2;
+    color: var(--cor-vermelho);
+}
+.btnBusca {
+    background: var(--cor-verde-agua);
+    color: white;
+    border: none;
+}
+
+.iconeSocial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-verde-agua);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-verde-agua);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.iconeSocial:hover {
+    background: var(--cor-verde-agua);
+    color: var(--cor-branco);
+}
+
+.btnNotificacao {
+  border: none;
+  background: transparent;
+
+  color: var(  --cor-verde-petroleo);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NotificacaoIcon {
+  font-size: 32px !important;
+}
+
+
+.btnMenuCustom{
+    width: 320px;
+    background:var(--cor-verde-agua);
+    color: var(--cor-verde-agua-claro);
+    border-radius: 0 px 12px;
+    padding: 8px 12px;
+    justify-content: center;
+    z-index: 999;
+}
+.btnMenuCustom .material-symbols-rounded {
+    color: var(--cor-verde-agua-claro);
+    font-size: 1.5rem;
+}
+
+.btnMenuCustom span:last-child {
+    color: var(--cor-verde-agua-claro);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btnMenuCustom:hover {
+    background: var(--cor-verde-petroleo);
+    color: var(--cor-branco);
+}
+
+.btnMenuCustom:hover .material-symbols-rounded {
+    color: var(--cor-branco);
+}
+
+.btnMenuCustom:hover span:last-child {
+    color: var(--cor-branco);
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+
+.menuAdmin {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 312px;
+
+  background: var(--cor-ciano-claro);
+
+  border-radius: 0 0 14px 14px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+  border-top: 10px solid var(--cor-ciano-claro);
+  margin-top: -4px;
+}
+
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 20px;
+
+  color: var(--cor-verde-agua);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.menuItem:hover {
+  background: rgba(52, 136, 136, 0.12);
+}
+
+/* SUBMENU FUTURO */
+
+.submenu {
+  background: var(--cor-);
+  width: 90%;
+  margin-left: 10px;
+}
+
+.submenuItem {
+  padding: 8px 35px;
+  margin: 3px;
+  font-size: 15px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  background: var(--cor-verde-agua);
+  color: var(--cor-branco);
+}
+.submenuItem:hover {
+   margin:0;
+   font-size: 16px;
+   background: var(--cor-verde-agua-claro);
+   color: var(--cor-verde-agua);
+   border: 1px solid var(--cor-verde-agua);
+   transition: 0.4s;
+}
+.submenuItem p {
+  margin: 0;
+}
+
+.sair {
+  justify-content: center;
+
+  font-weight: 700;
+
+  border-top: 1px solid rgba(52, 136, 136, 0.15);
+}
+
+.setaAberta {
+  transform: rotate(180deg);
+  transition: transform 0.6s;
+}
+.setaFechada {
+  transform: rotate(0deg);
+  transition: transform 0.6s;
+}
