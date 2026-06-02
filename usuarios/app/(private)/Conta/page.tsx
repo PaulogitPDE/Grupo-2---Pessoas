@@ -98,8 +98,8 @@ export default function Conta(){
 
                     <CustomContainerAdocao title="Adoção">
                         <h2>Gostaria de adotar um animal?</h2>
-                        <p style={{fontSize: "20px"}}>Realize já o formulário de adoção para provar que é apto(a) para adotar e cuidar de um animalzinho!</p>
-                        <p style={{fontSize: "20px"}}>Neste bloco, você poderá observar o progresso do processo de adoção!</p>
+                        <p style={{fontSize: "18px"}}>Realize já o formulário de adoção para provar que é apto(a) para adotar e cuidar de um animalzinho!</p>
+                        <p style={{fontSize: "18px"}}>Neste bloco, você poderá observar o progresso do processo de adoção!</p>
                         <CustomButton title="Formulário de Adoção" type="button" onClick={() => router.push('/Form_Adocao')} />
                     </CustomContainerAdocao>
 
