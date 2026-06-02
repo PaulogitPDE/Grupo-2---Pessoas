@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.grafico {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+
+  margin-bottom: 30px;
+}
+
+.centro {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--cor-branco);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centro strong {
+  font-size: 18px;  
+  color: var(--cor-verde-petroleo);
+}
+
+.centro small {
+  color: var(--cor-cinza);
+}
+.legenda {
+    gap: 20px;  
+}
+.NaoAtendidos::before{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.NaoAtendidos::before{
+    content: "";
+    display: inline-block;
+    width: 8px; /* Largura da bolinha */
+    height: 8px; /* Altura da bolinha */
+    margin: 0px 10px;
+    background-color:  #FA7F08; /* Cor da bolinha (ex: azul do Bootstrap) */
+    border-radius: 50%; /* Transforma o quadrado em círculo */
+
+}
+.Atendidos::before{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.Atendidos::before{
+    content: "";
+    display: inline-block;
+    width: 8px; /* Largura da bolinha */
+    height: 8px; /* Altura da bolinha */
+    margin: 0px 10px;
+    background-color:  #348888; /* Cor da bolinha (ex: azul do Bootstrap) */
+    border-radius: 50%; /* Transforma o quadrado em círculo */
+
+}
