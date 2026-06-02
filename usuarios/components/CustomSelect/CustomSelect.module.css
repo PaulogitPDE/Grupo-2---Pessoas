@@ -1,10 +1,9 @@
 .select{
-    font-size: 16px;
+    font-size: 20px;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(204, 204, 204);
     border-radius: 10px;
-
 }
 
 .select:focus{

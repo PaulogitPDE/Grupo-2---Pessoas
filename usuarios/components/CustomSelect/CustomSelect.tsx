@@ -40,6 +40,7 @@ export const  CustomSelect = ( props: PropsCustomSelect) => {
                 isInvalid={!!meta.error && meta.touched && !!error}
                 value={ value }
                 onChange={ change }
+                style={{height: "100%"}}
             >
                 <option value="">Selecione aqui...</option>
 

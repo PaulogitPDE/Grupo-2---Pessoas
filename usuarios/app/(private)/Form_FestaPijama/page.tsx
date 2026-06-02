@@ -5,6 +5,10 @@ import { CustomSelect } from "@/components/CustomSelect/CustomSelect";
 import { FormikProvider, useFormik } from "formik";
 import style from "./Form_FestaPijama.module.css";
 import * as Yup from 'yup';
+import { Col, Container, Row } from "react-bootstrap";
+import { CustomButton } from "@/components/CustomButton/CustomButton";
+import { CustomInputFile } from "@/components/CustomInputFile/CustomInputFile";
+import { CustomCheckbox } from "@/components/CustomCheckbox/CustomCheckbox";
 
 export default function Form_Festa_Pijama(){
 
@@ -234,12 +238,54 @@ export default function Form_Festa_Pijama(){
                 <div>
                     <h3 className={style.subtitle}>Upload de Documentação</h3>
 
-                    <input 
-                        type="file" 
-                        name="" 
-                        id="" />
+                    <div style={{
+                            display: "flex", 
+                            flexDirection: "column", 
+                            backgroundColor: "#348888a8", 
+                            padding: "10px", 
+                            borderRadius: "20px", 
+                            margin: "0px 0px 10px 0px",
+                            gap: "20px",
+                            }}>
+                        <h4 className={style.subtsubtitle}>Documentos do proprietário</h4>
+                        <CustomInputFile label="Documento de Identidade (RG ou CNH)" id="rgOuCnh" name="rgOuCnh" />
+                        <CustomInputFile label="Comprovante de Residência Atualizado (Últimos 3 meses)" id="comprovanteResidencia" name="comprovanteResidencia" />
+                    </div>
+                    <div style={{
+                            display: "flex", 
+                            flexDirection: "column", 
+                            backgroundColor: "#348888a8", 
+                            padding: "10px", 
+                            borderRadius: "20px", 
+                            margin: "0px 0px 10px 0px",
+                            gap: "20px",
+                            }}>
+                        <h4 className={style.subtsubtitle}>Fotos do ambiente para o animal</h4>
+                        <CustomInputFile label="Foto da sala" id="sala" name="sala" />
+                        <CustomInputFile label="Foto da área externa" id="areaExterna" name="areaExterna" />
+                        <CustomInputFile label="Foto do local onde o animal irá dormir" id="dormitorioAnimal" name="dormitorioAnimal" />
+                    </div>
+                </div>
+
+                <div style={{margin: "20px 0px 20px 0px"}}>
+                    <CustomCheckbox
+                        label="Declaro que as informações acima são verdadeiras."
+                        id=""
+                        value=""
+                    />
+                    <CustomCheckbox
+                        label="Estou ciente de que a hospedagem é voluntária e não gera vínculo empregatício ou remuneração."
+                        id=""
+                        value=""
+                    />
+                    <CustomCheckbox
+                        label="Autorizo a visita técnica da equipe do DPBEA para verificação das condições de bem-estar animal, se necessário."
+                        id=""
+                        value=""
+                    />
                 </div>
                 
+                <CustomButton title="Enviar" type="button" onClick={() => {}}/>
             </CustomContainer>
         </FormikProvider>
     );
