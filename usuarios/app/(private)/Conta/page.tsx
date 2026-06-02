@@ -98,9 +98,27 @@ export default function Conta(){
 
                     <CustomContainerAdocao title="Adoção">
                         <h2>Gostaria de adotar um animal?</h2>
-                        <p style={{fontSize: "18px"}}>Realize já o formulário de adoção para provar que é apto(a) para adotar e cuidar de um animalzinho!</p>
-                        <p style={{fontSize: "18px"}}>Neste bloco, você poderá observar o progresso do processo de adoção!</p>
-                        <CustomButton title="Formulário de Adoção" type="button" onClick={() => router.push('/Form_Adocao')} />
+                        <p style={{fontSize: "18px"}}>
+                            Realize já o formulário de adoção para provar que é apto(a) para adotar e cuidar de um animalzinho!
+                        </p>
+                        <p style={{fontSize: "18px"}}>
+                            Neste bloco, você poderá observar o progresso do processo de adoção!
+                        </p>
+                        <CustomButton 
+                            title="Formulário de Adoção" 
+                            type="button" 
+                            onClick={() => router.push('/Form_Adocao')} />
+                    </CustomContainerAdocao>
+
+                    <CustomContainerAdocao title="Festa Do Pijama">
+                        <h2>Cuidar de um animal é a sua praia?</h2>
+                        <p style={{fontSize: "18px", width: "60%"}}>
+                            Se você <strong>mora em Votorantim</strong>, e demonstra um grande compromisso quando estamos falando de cuidar de animas, inscreva-se no nosso mais novo programa <strong>Festa do Pijama!</strong> Temos como finalidade, a oferta de <strong>lares temporários</strong> para animais selecionados, podendo passar períodos curtos, como <strong>finais de semana ou feriados</strong> com você!
+                        </p>
+                        <CustomButton 
+                            title="Formulário da Festa do Pijama" 
+                            type="button" 
+                            onClick={() => router.push('/Form_FestaPijama')} />
                     </CustomContainerAdocao>
 
                     <CustomContainerProfile title="Dados Pessoais">

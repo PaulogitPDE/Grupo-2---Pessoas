@@ -52,7 +52,11 @@ export const CustomInput = (props: CustomInputProps) => {
                     : undefined
                     } 
                 readOnly={readOnly !== undefined ? readOnly : name === "nomePerfil"}/>
+                <Form.Control.Feedback type='invalid'>
+                    { error }
+                </Form.Control.Feedback>
             </FloatingLabel>
+            
         </>
     );
 }

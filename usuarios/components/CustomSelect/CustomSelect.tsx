@@ -18,11 +18,14 @@ interface PropsCustomSelect {
     id?: string;
     options: SelectOption[];
     label?: string;
+    value?: string;
+    change?: (e: any) => void;
+    error?: string;
 };
 
 export const  CustomSelect = ( props: PropsCustomSelect) => {
 
-  const {name, options, label, id} = props;
+  const {name, options, label, id, value, change, error} = props;
   const [field, meta] = useField(name);
   return (
       <Form.Group>
@@ -34,7 +37,9 @@ export const  CustomSelect = ( props: PropsCustomSelect) => {
             <Form.Select
                 {...field}
                 className={style.select}
-                isInvalid={!!meta.error && meta.touched}
+                isInvalid={!!meta.error && meta.touched && !!error}
+                value={ value }
+                onChange={ change }
             >
                 <option value="">Selecione aqui...</option>
 
@@ -47,6 +52,9 @@ export const  CustomSelect = ( props: PropsCustomSelect) => {
                     </option>
                 ))}
             </Form.Select>
+            <Form.Control.Feedback type="invalid">
+                { error }
+            </Form.Control.Feedback>
         </FloatingLabel>
       </Form.Group>
   );
