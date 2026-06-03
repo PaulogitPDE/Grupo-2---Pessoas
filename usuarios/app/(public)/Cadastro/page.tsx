@@ -3,7 +3,7 @@ import { CustomContainer } from "@/components/CustomContainer/CustomContainer";
 import { CustomInput } from "@/components/CustomInput/CustomInput";
 import style from './Cadastro.module.css';
 import { CustomInputView } from "@/components/CustomInputView/CustomInputView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
 import { CustomButtonNS } from "@/components/CustomButtonNS/CustomButtonNS";
 import { CustomCheckbox } from "@/components/CustomCheckbox/CustomCheckbox"
@@ -19,7 +19,7 @@ import { CustomSelect } from "@/components/CustomSelect/CustomSelect";
 export default function Cadastro(){
 
   const [tipo, setTipo] = useState<'PF' | 'PJ'>('PF');
-  const [cep, setCep] = useState("");
+  const [cepInvalido, setCepInvalido] = useState(false);
 
   const cadastroFormSchema = Yup.object({
     nome: Yup.string()
@@ -41,7 +41,8 @@ export default function Cadastro(){
     senha: Yup.string()
     .required("Campo obrigatório!"),
     cep: Yup.string()
-    .required("Campo obrigatório!"),
+    .required("Campo obrigatório!")
+    .test("cepInvalido", "CEP não encontrado!", () => !cepInvalido),
     endereco: Yup.string()
     .required("Campo obrigatório!"),
     numero: Yup.string()
@@ -49,7 +50,9 @@ export default function Cadastro(){
     bairro: Yup.string()
     .required("Campo obrigatório!"),
     estado: Yup.string()
-    .required("Campo obrigatório!"),
+    .required("Campo obrigatório!")
+    .min(2, "Insira apenas a sigla do seu estado!")
+    .max(2, "Insira apenas a sigla do seu estado!"),
     cidade: Yup.string()
     .required("Campo obrigatório!"),
     complemento: Yup.string()
@@ -66,7 +69,7 @@ export default function Cadastro(){
     telefone?: string;
     email?: string;
     senha?: string;
-    cep?: string;
+    cep: string;
     endereco?: string;
     numero?: string;
     bairro?: string;
@@ -77,7 +80,8 @@ export default function Cadastro(){
 
   const formik = useFormik<ICadastroForm>({
     initialValues: {
-        nome: ""
+        nome: "",
+        cep: ""
     },
 
     validationSchema: cadastroFormSchema,
@@ -91,35 +95,74 @@ export default function Cadastro(){
 
   const router = useRouter();
 
+  const apiCEP = async () => {
+    const cep = formik.values.cep;
+
+    if(cep?.length !== 9){
+        return;
+    }
+
+    const request = await fetch(`https://viacep.com.br/ws/${cep}/json/`, {
+        method: "GET",
+    });
+
+    const endereco = await request.json();
+
+    if(endereco.erro){
+        setCepInvalido(true);
+
+        formik.setFieldError("cep", "CEP não encontrado!")
+
+        formik.setFieldValue("endereco", "", false);
+        formik.setFieldValue("bairro", "", false);
+        formik.setFieldValue("cidade", "", false);
+        formik.setFieldValue("estado", "", false);
+        return;
+    }
+
+    setCepInvalido(false);
+
+    formik.setFieldValue("endereco", endereco.logradouro);
+    formik.setFieldValue("bairro", endereco.bairro);
+    formik.setFieldValue("cidade", endereco.localidade);
+    formik.setFieldValue("estado", endereco.uf);
+
+    formik.setFieldError("cep", undefined);
+  }
+
+  useEffect(() => {
+        apiCEP()
+    }, [formik.values.cep])
+
   
 
   const opcoesUF = [
-        {id: "1", value: "Acre", label: "AC"},
-        {id: "2", value: "Alagoas", label: "AL"},
-        {id: "3", value: "Amazonas", label: "AM"},
-        {id: "4", value: "Bahia", label: "BA"},
-        {id: "5", value: "Ceara", label: "CE"},
-        {id: "6", value: "Distrito Federal", label: "DF"},
-        {id: "7", value: "Espirito Santo", label: "ES"},
-        {id: "8", value: "Goias", label: "GO"},
-        {id: "9", value: "Maranhao", label: "MA"},
-        {id: "10", value: "Mato-Grosso", label: "MT"},
-        {id: "11", value: "Mato-Grosso-Sul", label: "MS"},
-        {id: "12", value: "Minas-Gerais", label: "MG"},
-        {id: "13", value: "Para", label: "PA"},
-        {id: "14", value: "Paraiba", label: "PB"},
-        {id: "15", value: "Parana", label: "PR"},
-        {id: "16", value: "Pernambuco", label: "PE"},
-        {id: "17", value: "Piaui", label: "PI"},
-        {id: "18", value: "Rio-de-Janeiro", label: "RJ"},
-        {id: "19", value: "Rio-Grande-Norte", label: "RN"},
-        {id: "20", value: "Rio-Grande-Sul", label: "RS"},
-        {id: "21", value: "Rondonia", label: "RO"},
-        {id: "22", value: "Roraima", label: "RR"},
-        {id: "23", value: "Santa-Catarina", label: "SC"},
-        {id: "24", value: "Sao-Paulo", label: "SP"},
-        {id: "25", value: "Sergipe", label: "SE"},
-        {id: "26", value: "Tocantins", label: "TO"}
+        {id: "1", value: "AC", label: "Acre"},
+        {id: "2", value: "AL", label: "Alagoas"},
+        {id: "3", value: "AM", label: "Amazonas"},
+        {id: "4", value: "BA", label: "Bahia"},
+        {id: "5", value: "CE", label: "Ceará"},
+        {id: "6", value: "DF", label: "Distrito Federal"},
+        {id: "7", value: "ES", label: "Espírito Santo"},
+        {id: "8", value: "GO", label: "Goiás"},
+        {id: "9", value: "MA", label: "Maranhão"},
+        {id: "10", value: "MT", label: "Mato Grosso"},
+        {id: "11", value: "MS", label: "Mato Grosso do Sul"},
+        {id: "12", value: "MG", label: "Minas Gerais"},
+        {id: "13", value: "PA", label: "Pará"},
+        {id: "14", value: "PB", label: "Paraíba"},
+        {id: "15", value: "PR", label: "Paraná"},
+        {id: "16", value: "PE", label: "Pernambuco"},
+        {id: "17", value: "PI", label: "Piauí"},
+        {id: "18", value: "RJ", label: "Rio de Janeiro"},
+        {id: "19", value: "RN", label: "Rio Grande do Norte"},
+        {id: "20", value: "RS", label: "Rio Grande do Sul"},
+        {id: "21", value: "RO", label: "Rondônia"},
+        {id: "22", value: "RR", label: "Roraima"},
+        {id: "23", value: "SC", label: "Santa Catarina"},
+        {id: "24", value: "SP", label: "São Paulo"},
+        {id: "25", value: "SE", label: "Sergipe"},
+        {id: "26", value: "TO", label: "Tocantins"}
     ]
 
 
@@ -220,13 +263,15 @@ export default function Cadastro(){
                         <CustomInputView
                         label="Senha"
                         name="senha" />
-                        <CustomInputSearch
-                        id="CEP"
-                        placeholder="Digite seu CEP"
-                        label="CEP"
-                        name="cep"
-                        change={formik.handleChange}
-                        value={formik.values.cep}/>
+                        <div style={{width: "33%"}}>
+                            <CustomInput
+                            type="text"
+                            label="CEP"
+                            name="cep"
+                            change={formik.handleChange}
+                            value={formik.values.cep}
+                            error={formik.errors.cep}/>
+                        </div>
                         <table>
                             <tbody>
                                 <tr>
@@ -245,6 +290,8 @@ export default function Cadastro(){
                                         name="estado"
                                         id="uf"
                                         options={opcoesUF}
+                                        value={formik.values.estado}
+                                        change={formik.handleChange}
                                         />
                                         
                                     </td>
