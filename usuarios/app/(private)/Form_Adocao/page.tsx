@@ -28,16 +28,27 @@ export default function Form_Adocao() {
     PossuiCriancas: string;
     QND_Criancas: number;
 
+    QND_Pessoas: number;
+
     Renda_Familiar: string;
     complemento: string;
   }
 
   const FormAdocaoSchema = Yup.object({
-    Adotou: Yup.string().required("Campo obrigatório!"),
-    PossuiAnimais: Yup.string().required("Campo obrigatório!"),
-    PossuiCriancas: Yup.string().required("Campo obrigatório!"),
-    Renda_Familiar: Yup.string().required("Campo obrigatório!"),
-    complemento: Yup.string().required("Campo obrigatório!")
+    Adotou: Yup.string()
+    .required("Campo obrigatório!"),
+
+    PossuiAnimais: Yup.string()
+    .required("Campo obrigatório!"),
+
+    PossuiCriancas: Yup.string()
+    .required("Campo obrigatório!"),
+
+    Renda_Familiar: Yup.string()
+    .required("Campo obrigatório!"),
+
+    complemento: Yup.string()
+    .required("Campo obrigatório!")
   });
 
   const [validacao, setValidacao] = useState<IValidacao>();
@@ -51,6 +62,8 @@ export default function Form_Adocao() {
 
       PossuiCriancas: "",
       QND_Criancas: 0,
+
+      QND_Pessoas: 0,
 
       Renda_Familiar: "",
       complemento: ""
@@ -78,64 +91,91 @@ export default function Form_Adocao() {
             label="Já adotou algum animal anteriormente?"
             options={opcoesSimNao}
             name="Adotou"
+            value={formik.values.Adotou}
+            change={formik.handleChange}
+            error={formik.errors.Adotou}
           />
 
           {formik.values.Adotou === "Sim" && (
-            <CustomInput
-              type="number"
-              label="Informe a quantidade:"
-              name="QND_Adocoes"
-              change={formik.handleChange}
-              value={formik.values.QND_Adocoes}
-            />
+            <div style={{width: "40%"}}>
+              <CustomInput
+                type="number"
+                label="Informe a quantidade:"
+                name="QND_Adocoes"
+                change={formik.handleChange}
+                value={formik.values.QND_Adocoes}
+                error={formik.errors.QND_Adocoes}
+              />
+            </div>
           )}
 
           <CustomSelect
             label="Você possui outros animais de estimação?"
             options={opcoesSimNao}
             name="PossuiAnimais"
+            change={formik.handleChange}
+            value={formik.values.PossuiAnimais}
+            error={formik.errors.PossuiAnimais}
           />
 
           {formik.values.PossuiAnimais === "Sim" && (
-            <CustomInput
-              type="number"
-              label="Informe a quantidade:"
-              name="QND_Animais"
-              change={formik.handleChange}
-              value={formik.values.QND_Animais}
-            />
+            <div style={{width: "40%"}}>
+              <CustomInput
+                type="number"
+                label="Informe a quantidade:"
+                name="QND_Animais"
+                change={formik.handleChange}
+                value={formik.values.QND_Animais}
+                error={formik.errors.QND_Animais}
+              />
+            </div>
           )}
 
           <CustomSelect
             label="Possui crianças em casa?"
             options={opcoesSimNao}
             name="PossuiCriancas"
+            change={formik.handleChange}
+            value={formik.values.PossuiAnimais}
+            error={formik.errors.PossuiAnimais}
           />
 
           {formik.values.PossuiCriancas === "Sim" && (
-            <CustomInput
-              type="number"
-              label="Informe a quantidade:"
-              name="QND_Criancas"
-              change={formik.handleChange}
-              value={formik.values.QND_Criancas}
-            />
+            <div style={{width: "40%"}}>
+              <CustomInput
+                type="number"
+                label="Informe a quantidade:"
+                name="QND_Criancas"
+                change={formik.handleChange}
+                value={formik.values.QND_Criancas}
+                error={formik.errors.QND_Criancas}
+              />
+            </div>
           )}
 
           <CustomInput
             label="Quantas pessoas compõem a sua família?"
-            type="double"
+            type="number"
             name="QND_Pessoas"
+            change={formik.handleChange}
+            value={formik.values.QND_Pessoas}
+            error={formik.errors.QND_Pessoas}
           />
                
           <CustomInput 
             label="Informe a sua renda familiar"
             type="number"
             name="Renda_Familiar"
+            change={formik.handleChange}
+            value={formik.values.Renda_Familiar}
+            error={formik.errors.Renda_Familiar}
           />
 
           <CustomTextArea 
             label="Escreva sobre o motivo da adoção!!"
+            value=""
+            name="complemento"
+            change={formik.handleChange}
           />
 
           <CustomButton

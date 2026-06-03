@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, useRef, ChangeEvent } from 'react';
+
+
 export const CustomProfilePicture = () => {
     const [foto, setFoto] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);

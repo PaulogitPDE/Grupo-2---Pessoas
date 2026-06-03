@@ -34,7 +34,8 @@ export default function Conta(){
     const formik = useFormik({
         initialValues: {
             nomePerfil: "",
-            animalFavorito: ""
+            animalFavorito: "",
+            descricao: ""
         },        
  
         onSubmit: () => {}
@@ -47,32 +48,32 @@ export default function Conta(){
     const router = useRouter();
 
     const opcoesUF = [
-        {id: "1", value: "Acre", label: "AC"},
-        {id: "2", value: "Alagoas", label: "AL"},
-        {id: "3", value: "Amazonas", label: "AM"},
-        {id: "4", value: "Bahia", label: "BA"},
-        {id: "5", value: "Ceara", label: "CE"},
-        {id: "6", value: "Distrito Federal", label: "DF"},
-        {id: "7", value: "Espirito Santo", label: "ES"},
-        {id: "8", value: "Goias", label: "GO"},
-        {id: "9", value: "Maranhao", label: "MA"},
-        {id: "10", value: "Mato-Grosso", label: "MT"},
-        {id: "11", value: "Mato-Grosso-Sul", label: "MS"},
-        {id: "12", value: "Minas-Gerais", label: "MG"},
-        {id: "13", value: "Para", label: "PA"},
-        {id: "14", value: "Paraiba", label: "PB"},
-        {id: "15", value: "Parana", label: "PR"},
-        {id: "16", value: "Pernambuco", label: "PE"},
-        {id: "17", value: "Piaui", label: "PI"},
-        {id: "18", value: "Rio-de-Janeiro", label: "RJ"},
-        {id: "19", value: "Rio-Grande-Norte", label: "RN"},
-        {id: "20", value: "Rio-Grande-Sul", label: "RS"},
-        {id: "21", value: "Rondonia", label: "RO"},
-        {id: "22", value: "Roraima", label: "RR"},
-        {id: "23", value: "Santa-Catarina", label: "SC"},
-        {id: "24", value: "Sao-Paulo", label: "SP"},
-        {id: "25", value: "Sergipe", label: "SE"},
-        {id: "26", value: "Tocantins", label: "TO"}
+        {id: "1", value: "AC", label: "Acre"},
+        {id: "2", value: "AL", label: "Alagoas"},
+        {id: "3", value: "AM", label: "Amazonas"},
+        {id: "4", value: "BA", label: "Bahia"},
+        {id: "5", value: "CE", label: "Ceará"},
+        {id: "6", value: "DF", label: "Distrito Federal"},
+        {id: "7", value: "ES", label: "Espírito Santo"},
+        {id: "8", value: "GO", label: "Goiás"},
+        {id: "9", value: "MA", label: "Maranhão"},
+        {id: "10", value: "MT", label: "Mato Grosso"},
+        {id: "11", value: "MS", label: "Mato Grosso do Sul"},
+        {id: "12", value: "MG", label: "Minas Gerais"},
+        {id: "13", value: "PA", label: "Pará"},
+        {id: "14", value: "PB", label: "Paraíba"},
+        {id: "15", value: "PR", label: "Paraná"},
+        {id: "16", value: "PE", label: "Pernambuco"},
+        {id: "17", value: "PI", label: "Piauí"},
+        {id: "18", value: "RJ", label: "Rio de Janeiro"},
+        {id: "19", value: "RN", label: "Rio Grande do Norte"},
+        {id: "20", value: "RS", label: "Rio Grande do Sul"},
+        {id: "21", value: "RO", label: "Rondônia"},
+        {id: "22", value: "RR", label: "Roraima"},
+        {id: "23", value: "SC", label: "Santa Catarina"},
+        {id: "24", value: "SP", label: "São Paulo"},
+        {id: "25", value: "SE", label: "Sergipe"},
+        {id: "26", value: "TO", label: "Tocantins"}
     ]
 
     return(
@@ -86,8 +87,11 @@ export default function Conta(){
                                 label="Nome completo"
                                 type="text"
                                 name="nomePerfil"
+                                value="Paulo Vitor de Arruda"
                             ></CustomInputEdit>
-                            <CustomTextArea label="Descrição" />
+
+                            <CustomTextArea label="Descrição" name="descricao" change={formik.handleChange} value="Estou muito feliz com o novo site da Prefeitura de Votorantim para adoção de pets! Assim que entrei, fiquei impressionada com a quantidade de animais lindos esperando por um lar — cachorros, gatos, pássaros e até outros bichinhos que eu nem imaginava encontrar por lá. Sempre tive o sonho de adotar um cachorro, e agora sinto que chegou a hora certa. Quero poder oferecer tudo o que ele merece: carinho, segurança, atenção e um cantinho cheio de amor. A ideia de poder mudar a vida de um animal e, ao mesmo tempo, transformar a minha me deixa muito animada. Já fico imaginando os passeios, as brincadeiras e até as bagunças que virão. Adotar é um gesto de amor, e esse novo site torna tudo mais fácil e acessível. Mal posso esperar para encontrar meu novo melhor amigo!" />
+
                             <CustomSelect name="animalFavorito" label="Qual o seu animal favorito?" options={opcoes} ></CustomSelect>
                         </div>
                         <div style={{display: "flex", flexDirection: "column", width: "50%"}}>
@@ -126,7 +130,8 @@ export default function Conta(){
                             <CustomInput 
                                 type="text" 
                                 label="E-mail" 
-                                name="email"/>
+                                name="email"
+                                value="paulo.arruda@aluno.cps.sp.gov.br"/>
 
                             <div style={{display: "flex", gap: "10%"}}>
                                 <CustomInputView label="Senha" name="senhaConta" value="***********"/>
@@ -137,7 +142,8 @@ export default function Conta(){
                         <div>
                             <CustomInputSearch 
                                 label="CEP" 
-                                name="cep" />
+                                name="cep"
+                                value="18110008" />
                             <table style={{width: "100%"}}>
                                 <tbody>
                                     <tr>
@@ -146,6 +152,7 @@ export default function Conta(){
                                             type="text"
                                             label="Endereço"
                                             name="endereco"
+                                            value="Avenida Juscelino Kubitschek de Oliveira"
                                             />
                                         </td>
                                         <td>
@@ -154,6 +161,7 @@ export default function Conta(){
                                             name="estado"
                                             id="uf"
                                             options={opcoesUF}
+                                            value="SP"
                                             />
                                             
                                         </td>
@@ -165,6 +173,7 @@ export default function Conta(){
                                             type="text"
                                             label="Número"
                                             name="numero"
+                                            value="279"
                                             />
                                         </td>
                                         <td>
@@ -172,6 +181,7 @@ export default function Conta(){
                                             type="text"
                                             label="Cidade"
                                             name="cidade"
+                                            value="Votorantim"
                                             />  
                                         </td>
                                         <td>
@@ -180,6 +190,7 @@ export default function Conta(){
                                             type="text"
                                             label="Bairro"
                                             name="bairro"
+                                            value="Centro"
                                             />
                                             
                                         </td>
