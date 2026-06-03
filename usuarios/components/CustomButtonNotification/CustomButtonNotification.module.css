@@ -17,6 +17,7 @@
    background-color: var(--cor-verde-agua-claro);   
    color: var(--cor-verde-petroleo);
    transition: 0.3s ;
+   cursor: pointer;
 }
 
 .p{

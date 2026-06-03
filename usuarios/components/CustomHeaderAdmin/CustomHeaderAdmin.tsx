@@ -119,11 +119,11 @@ export const CustomHeaderAdmin = () => {
                       {submenuAberto === "pessoas" && (
                         <div className={style.submenu}>
                           <div className={style.submenuItem}>
-                            <p onClick={() => router.push("./CaseSucesso")}>Case de sucesso</p>
+                            <p onClick={() => router.push("admin/CaseSucesso")}>Case de sucesso</p>
                           </div>
 
                           <div className={style.submenuItem}>
-                           <p onClick={() => router.push("./GerenciarUser")}>Gerenciar usuários</p>
+                           <p onClick={() => router.push("admin/GerenciarUser")}>Gerenciar usuários</p>
                           </div>
                         </div>
                       )}

@@ -1,0 +1,87 @@
+.card{
+    display:flex;
+    gap:20px;
+    padding:15px;
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+
+    margin-bottom:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto{
+    width:150px;
+    height:100px;
+
+    object-fit:cover;
+    border-radius:10px;
+    
+    border:1px solid #999;
+
+}
+
+.informacoes{
+    flex:1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.linha{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:15px;
+    justify-content: center;
+    align-items: center
+}
+
+.linha > div{
+    align-items: center;
+    flex:1;
+}
+
+.linha h4{
+    color:var(--cor-verde-petroleo);
+    margin-bottom:4px;
+    font-size:1.2rem;
+    font-weight:bold;
+    align-items: center;
+}
+
+.campo{
+    border:2px solid var(--cor-verde-petroleo);
+    border-radius:10px;
+    padding:4px 10px;
+    min-height:40px;
+    display:flex;
+    align-items:center;
+}
+
+.botao{
+    align-items: center;
+    border:1px solid;
+    
+    border-radius: 20px;
+    background:none;
+    color:var(--cor-laranja-vibrante);
+    font-weight:bold;
+    margin-top: 20px;
+    height: 60px;
+
+    cursor:pointer;
+}
+.botao:hover{
+    border:0px solid;  
+    border-radius: 20px;
+
+    background:var(--cor-laranja-vibrante);
+    color:var(--cor-escuro);
+    margin-top: 15px;
+    height: 65px;
+}

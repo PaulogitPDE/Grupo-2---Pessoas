@@ -1,0 +1,90 @@
+.titulo{
+    text-align:center;
+    color:var(--cor-verde-petroleo);
+}
+
+.card{
+    padding:20px;
+}
+
+.topo{
+    display:flex;
+    gap:20px;
+}
+
+.foto{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+}
+
+.dados{
+    flex:1;
+}
+
+.observacao{
+    width:250px;
+}
+
+.textArea{
+    width:100%;
+    height:120px;
+}
+
+.bloco{
+    margin-top:20px;
+
+    border:1px solid #348888;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    width:220px;
+}
+
+.blocoGrande{
+    margin-top:20px;
+
+    border:1px solid #348888;
+
+    border-radius:10px;
+
+    padding:15px;
+}
+
+.gridPermissao{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.acoes{
+    margin-top:20px;
+
+    display:flex;
+
+    gap:30px;
+
+    justify-content:space-between;
+}
+
+.caixa{
+    width:100%;
+    height:100px;
+    margin-bottom:10px;
+}
+
+.footer{
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+}
