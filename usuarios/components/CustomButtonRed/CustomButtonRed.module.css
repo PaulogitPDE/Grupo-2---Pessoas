@@ -1,0 +1,35 @@
+.btn_red {
+    background:red;
+    color: var(--cor-branco);
+    font-weight: 700;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 8px 32px;
+}
+
+.btn_laranja:hover {
+    background: #ff8f33;
+    color: #FFFFFF;
+}
+
+.btn_claro{
+    background: var(--cor-branco);
+    color: var(--cor-laranja);
+    border: 2px solid var(--cor-laranja);
+    font-weight: 700;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 8px 32px;
+}
+
+.btn_claro:hover{
+    background: var(--cor-laranja);
+    color: var(--cor-branco);
+}

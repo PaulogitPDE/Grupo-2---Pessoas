@@ -43,7 +43,7 @@ export const CustomHeaderAdmin = () => {
 
             {/* Logo */}
             <div className="col-md-3">
-              <a href="/"><img src="/img/logo_Bem-EstarAnimal.png" alt="Logo" className="img-fluid" style={{ maxWidth: "170px" }} /></a>
+              <a href="/admin"><img src="/img/logo_Bem-EstarAnimal.png" alt="Logo" className="img-fluid" style={{ maxWidth: "170px" }} /></a>
             </div>
 
             {/* Busca */}
@@ -58,7 +58,7 @@ export const CustomHeaderAdmin = () => {
             </div>
             {/* Logo direita */}
             <div className="col-md-5 text-end">
-              <img src="/img/logo_prefeituraVotorantim.png" alt="Prefeitura" className="img-fluid" style={{ maxWidth: "120px" }}/>
+              <a href="/"><img src="/img/logo_prefeituraVotorantim.png" alt="Prefeitura" className="img-fluid" style={{ maxWidth: "120px" }}/></a>
             </div>
           </div>
         </div>
@@ -119,11 +119,11 @@ export const CustomHeaderAdmin = () => {
                       {submenuAberto === "pessoas" && (
                         <div className={style.submenu}>
                           <div className={style.submenuItem}>
-                            <p onClick={() => router.push("admin/CaseSucesso")}>Case de sucesso</p>
+                            <p onClick={() => router.push("/admin/CaseSucesso")}>Case de sucesso</p>
                           </div>
 
                           <div className={style.submenuItem}>
-                           <p onClick={() => router.push("admin/GerenciarUser")}>Gerenciar usuários</p>
+                           <p onClick={() => router.push("/admin/GerenciarUser")}>Gerenciar usuários</p>
                           </div>
                         </div>
                       )}

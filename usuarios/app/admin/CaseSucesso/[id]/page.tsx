@@ -6,6 +6,7 @@ import { CustomButton } from "@/components/CustomButton/CustomButton";
 
 import style from "./CaseSucesso0.module.css";
 import { CustomButtonCancel } from '@/components/CustomButtonCancel/CustomButtonCancel';
+import { CustomButtonRed } from '@/components/CustomButtonRed/CustomButtonRed';
 
 interface Props {
     params: Promise<{
@@ -74,7 +75,7 @@ export default async function PerfilCaseSucesso({
 
                     <div className={style.botoes}>
 
-                        <CustomButton 
+                        <CustomButtonRed 
                             title="Negar"
                         />
 

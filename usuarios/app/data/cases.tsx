@@ -5,7 +5,7 @@ export const cases = [
         foto: "/img/adotante1.png",
         aprovadoPor: "Viviane Martins",
         animal: "Vira-lata, 7 anos - Caramelo",
-
+        cpf:"400.289.222-00",
         historia: `
 Desde pequeno sempre gostei de cachorros.
 
@@ -21,7 +21,7 @@ Hoje ele faz parte da minha família.
         foto: "/img/adotante2.png",
         aprovadoPor: "Viviane Martins",
         animal: "Gato laranja, 2 anos - Miau",
-
+        cpf:"161.173.141-50",
         historia: `
 Sempre gostei de gatos.
 
@@ -35,7 +35,7 @@ A adoção do Miau mudou minha rotina e trouxe muita alegria para casa.
         foto: "/img/adotante3.png",
         aprovadoPor: "Viviane Martins",
         animal: "Cavalo, 5 anos - Canela",
-
+        cpf:"555.777.888.08",
         historia: `
 Desde pequeno, sempre fui fascinado por cavalos.
 Havia algo neles que me transmitia paz.

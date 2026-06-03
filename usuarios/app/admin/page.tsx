@@ -66,13 +66,13 @@ export default function admin() {
                     <CustomCardAcesso
                         titulo="Case de Sucesso"
                         imagem="/img/case-sucesso.png"
-                        rota="./admin/CaseSucesso"
+                        rota="/admin/CaseSucesso"
                     />
 
                     <CustomCardAcesso
                         titulo="Gerenciar Pessoas"
                         imagem="/img/gerenciar-pessoas.png"
-                        rota="./admin/GerenciarUser"
+                        rota="/admin/GerenciarUser"
                     />
                 </div>
                 <br/>

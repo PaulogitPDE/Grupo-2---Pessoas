@@ -15,7 +15,24 @@ export default function GerenciarUser() {
           </h1>
 
           <CustomContainer BackgroundColor="#348888">
-
+                <CustomCardGerir
+                  id={3}
+                  nome="Bruno "
+                  endereco="Rua Jordan de Mira 3800"
+                  cpf="161.173.141-50"
+                  pet="Cavalo, 5 anos - Canela"
+                  status="Case aprovado"
+                  foto="/img/adotante3.png"
+              />
+              <CustomCardGerir
+                  id={4}
+                  nome="Paulo "
+                  endereco="Rua Santo Agosto de Paulo 38"
+                  cpf="555.777.888.08"
+                  pet="Darth, 3 anos - Pastor Maninois"
+                  status="Case aprovado"
+                  foto="/img/adotante4.png"
+              />
               <CustomCardGerir
                   id={1}
                   nome="Theo "
@@ -33,24 +50,6 @@ export default function GerenciarUser() {
                   pet="Gato laranja, 2 anos - Miau"
                   status="Case pendente"
                   foto="/img/adotante2.png"
-              />
-              <CustomCardGerir
-                  id={3}
-                  nome="Bruno "
-                  endereco="Rua Jordan de Mira 3800"
-                  cpf="161.173.141-50"
-                  pet="Cavalo, 5 anos - Canela"
-                  status="Case aprovado"
-                  foto="/img/adotante3.png"
-              />
-              <CustomCardGerir
-                  id={4}
-                  nome="Paulo "
-                  endereco="Rua Santo Agosto de Paulo 38"
-                  cpf="555.777.888.08"
-                  pet="Darth, 3 anos - Pastor Maninois"
-                  status="Case aprovado"
-                  foto="/img/adotante4.png"
               />
           </CustomContainer>
       </>

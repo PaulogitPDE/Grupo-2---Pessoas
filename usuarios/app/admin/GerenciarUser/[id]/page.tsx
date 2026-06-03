@@ -3,13 +3,12 @@ import { cases } from '@/app/data/cases';
 import { CustomContainer } from "@/components/CustomContainer/CustomContainer";
 import { CustomInputEdit } from "@/components/CustomInputEdit/CustomInputEdit";
 import { CustomButton } from "@/components/CustomButton/CustomButton";
+import { CustomButtonRed } from "@/components/CustomButtonRed/CustomButtonRed";
 
 import style from "./GerenciarUser0.module.css";
 
 interface Props {
-    params: Promise<{
-        id: string;
-    }>;
+    params: Promise<{id: string;}>;
 }
 
 export default async function GerenciarUsuario({params}: Props) {
@@ -59,13 +58,13 @@ export default async function GerenciarUsuario({params}: Props) {
                             <CustomInputEdit
                                 label="CPF/CNPJ"
                                 type="text"
-                                value={`CPF ${usuario.id}`}
+                                value={usuario.cpf}
                             />
 
                         </div>
 
                         <div className={style.observacao}>
-                            <label>Observação</label>
+                            <h5>Observação</h5>
 
                             <textarea
                                 className={style.textArea}
@@ -73,86 +72,81 @@ export default async function GerenciarUsuario({params}: Props) {
                         </div>
 
                     </div>
-
-                    <div className={style.bloco}>
-
-                        <h3>Função</h3>
-
-                        <label>
-                            <input type="checkbox"/>
-                            Veterinário
-                        </label>
-
-                        <label>
-                            <input type="checkbox"/>
-                            Administrador
-                        </label>
-
-                        <label>
-                            <input type="checkbox"/>
-                            Doador
-                        </label>
-
-                    </div>
-
-                    <div className={style.blocoGrande}>
-
-                        <h3>Permissões</h3>
-
-                        <div className={style.gridPermissao}>
-
-                            <label>
+                    <div  className={'d-flex flex-collum justify-content-between '}>
+                        <div className={style.bloco}>
+                            <h3>Função</h3>
+                            <label className={style.label}>
                                 <input type="checkbox"/>
-                                Gestão de Pessoas
+                                Veterinário
                             </label>
-
-                            <label>
+                            <label className={style.label}>
                                 <input type="checkbox"/>
-                                Banco de Ração
+                                Administrador
                             </label>
-
-                            <label>
+                            <label className={style.label}>
                                 <input type="checkbox"/>
-                                Gestor Veterinário
+                                Doador
                             </label>
-
-                            <label>
-                                <input type="checkbox"/>
-                                Moderador de Denúncias
-                            </label>
-
                         </div>
 
-                    </div>
+                        <div className={style.blocoGrande}>
 
+                            <h3>Permissões</h3>
+
+                            <div className={style.gridPermissao}>
+
+                                <label className={style.label}>
+                                    <input type="checkbox"/>
+                                    Gestão de Pessoas
+                                </label>
+
+                                <label className={style.label}>
+                                    <input type="checkbox"/>
+                                    Banco de Ração
+                                </label>
+
+                                <label className={style.label}>
+                                    <input type="checkbox"/>
+                                    Gestor Veterinário
+                                </label>
+
+                                <label className={style.label}>
+                                    <input type="checkbox"/>
+                                    Moderador de Denúncias
+                                </label>
+
+                            </div>
+
+                        </div>
+                    </div>
                     <div className={style.acoes}>
 
                         <div>
 
-                            <label>Enviar aviso</label>
+                            <label className={style.LBacoe}>Enviar aviso</label>
 
                             <textarea
                                 className={style.caixa}
                             />
 
-                            <CustomButton
+                            <CustomButton 
                                 title="Enviar aviso"
+                            
                             />
 
                         </div>
 
                         <div>
 
-                            <label>Banir usuário</label>
+                            <label className={style.LBacoe}>Banir usuário</label>
 
                             <textarea
                                 className={style.caixa}
                             />
 
-                            <CustomButton
+                            <CustomButtonRed
                                 title="Banir usuário"
                             />
-
                         </div>
 
                     </div>
