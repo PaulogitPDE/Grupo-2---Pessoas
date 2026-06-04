@@ -23,12 +23,12 @@ export const CustomTextArea = (props: CustomTextAreaProps) => {
                 <Form.Control 
                     as="textarea" 
                     className={style.textArea} 
-                    value={ value } 
                     style={{height: "200px"}} 
+                    value={ value }
                     placeholder="Leave a comment here"
                     onChange={ change }
-                    name={ name } 
-                    />
+                    name={ name }
+                    ></Form.Control>
             </FloatingLabel>
         </>
     )

@@ -11,10 +11,6 @@ import { CustomSelect } from "@/components/CustomSelect/CustomSelect";
 import { CustomTextArea } from "@/components/CustomTextArea/CustomTextArea";
 import { useFormik, FormikProvider } from "formik";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import * as Yup from 'yup';
-
-import sim from '@/app/(public)/Esq_senha/page'
 import { CustomContainerAdocao } from "@/components/CustomContainerAdocao/CustomContainerAdocao";
 
 export default function Conta(){
@@ -33,18 +29,23 @@ export default function Conta(){
 
     const formik = useFormik({
         initialValues: {
-            nomePerfil: "",
+            nomePerfil: "Paulo Vitor de Arruda",
             animalFavorito: "",
-            descricao: ""
+            descricao: "Estou muito feliz com o novo site...",
+            email: "paulo.arruda@aluno.cps.sp.gov.br",
+            senhaConta: "********",
+            cep: "18110008",
+            endereco: "Avenida Juscelino Kubitschek de Oliveira",
+            estado: "SP",
+            numero: "279",
+            cidade: "Votorantim",
+            bairro: "Centro"
         },        
  
         onSubmit: () => {}
     });
 
     
-
-    const [nomePerfil, setNomePerfil] = useState <string>();
-
     const router = useRouter();
 
     const opcoesUF = [
@@ -87,12 +88,13 @@ export default function Conta(){
                                 label="Nome completo"
                                 type="text"
                                 name="nomePerfil"
-                                value="Paulo Vitor de Arruda"
+                                value={formik.values.nomePerfil}
+                                change={formik.handleChange}
                             ></CustomInputEdit>
 
                             <CustomTextArea label="Descrição" name="descricao" change={formik.handleChange} value="Estou muito feliz com o novo site da Prefeitura de Votorantim para adoção de pets! Assim que entrei, fiquei impressionada com a quantidade de animais lindos esperando por um lar — cachorros, gatos, pássaros e até outros bichinhos que eu nem imaginava encontrar por lá. Sempre tive o sonho de adotar um cachorro, e agora sinto que chegou a hora certa. Quero poder oferecer tudo o que ele merece: carinho, segurança, atenção e um cantinho cheio de amor. A ideia de poder mudar a vida de um animal e, ao mesmo tempo, transformar a minha me deixa muito animada. Já fico imaginando os passeios, as brincadeiras e até as bagunças que virão. Adotar é um gesto de amor, e esse novo site torna tudo mais fácil e acessível. Mal posso esperar para encontrar meu novo melhor amigo!" />
 
-                            <CustomSelect name="animalFavorito" label="Qual o seu animal favorito?" options={opcoes} ></CustomSelect>
+                            <CustomSelect name="animalFavorito" label="Qual o seu animal favorito?" change={formik.handleChange} options={opcoes} ></CustomSelect>
                         </div>
                         <div style={{display: "flex", flexDirection: "column", width: "50%"}}>
                             <CustomProfilePicture></CustomProfilePicture>
@@ -131,10 +133,11 @@ export default function Conta(){
                                 type="text" 
                                 label="E-mail" 
                                 name="email"
-                                value="paulo.arruda@aluno.cps.sp.gov.br"/>
+                                value={formik.values.email}
+                                change={formik.handleChange}/>
 
                             <div style={{display: "flex", gap: "10%"}}>
-                                <CustomInputView label="Senha" name="senhaConta" value="***********"/>
+                                <CustomInputView label="Senha" name="senhaConta" value={formik.values.senhaConta} change={formik.handleChange}/>
                                 <CustomButton title="Redefinir Senha" type='button' name="redefSenhaConta" onClick={() => router.push('/Esq_senha')}/>
                             </div>
                         </div>
@@ -143,7 +146,8 @@ export default function Conta(){
                             <CustomInputSearch 
                                 label="CEP" 
                                 name="cep"
-                                value="18110008" />
+                                value={formik.values.cep}
+                                change={formik.handleChange} />
                             <table style={{width: "100%"}}>
                                 <tbody>
                                     <tr>
@@ -152,7 +156,8 @@ export default function Conta(){
                                             type="text"
                                             label="Endereço"
                                             name="endereco"
-                                            value="Avenida Juscelino Kubitschek de Oliveira"
+                                            value={formik.values.endereco}
+                                            change={formik.handleChange}
                                             />
                                         </td>
                                         <td>
@@ -161,7 +166,8 @@ export default function Conta(){
                                             name="estado"
                                             id="uf"
                                             options={opcoesUF}
-                                            value="SP"
+                                            value={formik.values.estado}
+                                            change={formik.handleChange}
                                             />
                                             
                                         </td>
@@ -173,7 +179,8 @@ export default function Conta(){
                                             type="text"
                                             label="Número"
                                             name="numero"
-                                            value="279"
+                                            value={formik.values.numero}
+                                            change={formik.handleChange}
                                             />
                                         </td>
                                         <td>
@@ -181,7 +188,8 @@ export default function Conta(){
                                             type="text"
                                             label="Cidade"
                                             name="cidade"
-                                            value="Votorantim"
+                                            value={formik.values.cidade}
+                                            change={formik.handleChange}
                                             />  
                                         </td>
                                         <td>
@@ -190,7 +198,8 @@ export default function Conta(){
                                             type="text"
                                             label="Bairro"
                                             name="bairro"
-                                            value="Centro"
+                                            value={formik.values.bairro}
+                                            change={formik.handleChange}                                            
                                             />
                                             
                                         </td>
@@ -198,8 +207,10 @@ export default function Conta(){
                                 </tbody>
                             </table>
                             <CustomInput
-                            type="text"
-                            label="Complemento"/>
+                                type="text"
+                                label="Complemento"
+                                change={formik.handleChange}
+                            />
                         </div>
                     </CustomContainerProfile>
                 </form>
