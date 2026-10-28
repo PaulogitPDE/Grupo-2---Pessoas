@@ -26,7 +26,6 @@ app.post('/cadPF', async (req, res) => {
         complemento = req.body.complemento;
 
         const cn = await Conectar();
-        const sim = 10;
         const campo = cn.request()
             .input("nome", sql.VarChar(100), nome)
             .input("cpf", sql.VarChar(18), cpf)
