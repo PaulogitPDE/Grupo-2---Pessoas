@@ -1,13 +1,16 @@
-const express = required('express');
+const express = require('express');
 
 const cors = require('cors');
-const { sql, Conectar } = require("./database.js");
+
+const { sql, Conectar } = require('./database.js');
 
 const app = express();
 
-const port = 3010;
+app.use(express.json());
 
 app.use(cors());
+
+
 
 app.post('/cadPF', async (req, res) => {
     try {
