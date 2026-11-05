@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 
 export default function MainEsqSenha(){
   const [tipo, setTipo] = useState<'email' | 'sms'>('email');
-  const router = useRouter();
+    const router = useRouter();
 
     return(
         <>

@@ -14,19 +14,19 @@ app.use(cors());
 
 app.post('/cadPF', async (req, res) => {
     try {
-        nome = req.body.nome;
-        cpf = req.body.cpf;
-        dataNasc = req.body.dataNasc;
-        telefone = req.body.telefone;
-        email = req.body.email;
-        senha = req.body.senha;
-        cep = req.body.cep;
-        endereco = req.body.endereco;
-        numero = req.body.numero;
-        bairro = req.body.bairro;
-        estado = req.body.estado;
-        cidade = req.body.cidade;
-        complemento = req.body.complemento;
+        const nome = req.body.nome;
+        const cpf = req.body.cpf;
+        const dataNasc = req.body.dataNasc;
+        const telefone = req.body.telefone;
+        const email = req.body.email;
+        const senha = req.body.senha;
+        const cep = req.body.cep;
+        const endereco = req.body.endereco;
+        const numero = req.body.numero;
+        const bairro = req.body.bairro;
+        const estado = req.body.estado;
+        const cidade = req.body.cidade;
+        const complemento = req.body.complemento;
 
         const cn = await Conectar();
         const campo = cn.request()
