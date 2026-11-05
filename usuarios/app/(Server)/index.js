@@ -4,13 +4,13 @@ const cors = require('cors');
 
 const { sql, Conectar } = require('./database.js');
 
+const port = 3010;
+
 const app = express();
 
 app.use(express.json());
 
 app.use(cors());
-
-
 
 app.post('/cadPF', async (req, res) => {
     try {
@@ -29,7 +29,7 @@ app.post('/cadPF', async (req, res) => {
         const complemento = req.body.complemento;
 
         const cn = await Conectar();
-        const campo = cn.request()
+        const campo = await cn.request()
             .input("nome", sql.VarChar(100), nome)
             .input("cpf", sql.VarChar(18), cpf)
             .input("dataNasc", sql.Date, dataNasc)
@@ -45,6 +45,9 @@ app.post('/cadPF', async (req, res) => {
             .input("complemento", sql.VarChar(60), complemento)
             .query(
                 `
+
+                DECLARE @idUsuario INT;
+
                 INSERT INTO USUARIO(
                     nome,
                     email,
@@ -52,18 +55,20 @@ app.post('/cadPF', async (req, res) => {
                     senha,
                     cpf_cnpj,
                     data_nasc
-                ) 
-                OUTPUT INSERTED.*
-                ADD(
+                )
+                VALUES(
                     @nome,
-                    @cpf
+                    @email,
+                    @telefone,
+                    @senha,
+                    @cpf,
                     @dataNasc
-                    @telefone
-                    @email
-                    @senha
                 );
+
+                SET @idUsuario = SCOPE_IDENTITY();
                 
                 INSERT INTO ENDERECO(
+                    id_usuario,
                     cep,
                     logradouro,
                     numero,
@@ -72,16 +77,19 @@ app.post('/cadPF', async (req, res) => {
                     cidade,
                     uf
                 ) 
-                OUTPUT INSERTED.*
-                ADD(
-                    @cep
-                    @endereco
-                    @numero
-                    @bairro
+                VALUES(
+                    @idUsuario,
+                    @cep,
+                    @endereco,
+                    @numero,
+                    @complemento,
+                    @bairro,
+                    @cidade,
                     @estado
-                    @cidade
-                    @complemento
-                )`
+                );
+                
+                SELECT id_usuario, nome, email, telefone FROM USUARIO WHERE id_usuario = @idUsuario;    
+                `
             )
 
         res.status(201).json({
@@ -90,7 +98,12 @@ app.post('/cadPF', async (req, res) => {
         })
     }
     catch (e) {
-        alert("Deu errado sabagaça")
+        res.status(500).json({
+            "erro": e.message
+        })
     }
 })
 
+app.listen(port, () => {
+  console.log(`servidor http://localhost:${port}`);
+})
