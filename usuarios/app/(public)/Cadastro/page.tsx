@@ -71,7 +71,7 @@ export default function Cadastro() {
     })
 
     interface ICadastroForm {
-        nome: string;
+        nome?: string;
         cpf?: string;
         dataNasc?: Date;
         razaoSocial?: string;
@@ -80,21 +80,28 @@ export default function Cadastro() {
         telefone?: string;
         email?: string;
         senha?: string;
-        cep: string;
+        cep?: string;
         endereco?: string;
         numero?: string;
         bairro?: string;
         estado?: string;
         cidade?: string;
         complemento?: string;
+        tipoPessoa?: string;
     }
 
     const formik = useFormik<ICadastroForm>({
-        initialValues: {
-            nome: "", cpf: "", dataNasc: undefined, telefone: "", email: "",
-            senha: "", cep: "", endereco: "", numero: "", bairro: "",
-            estado: "", cidade: "", complemento: ""
-        },
+        initialValues:
+            tipo === "PF" ? {
+                nome: "", cpf: "", dataNasc: undefined, telefone: "", email: "",
+                senha: "", cep: "", endereco: "", numero: "", bairro: "",
+                estado: "", cidade: "", complemento: "", tipoPessoa: tipo
+            }
+                : {
+                    razaoSocial: "", nomeFantasia: "", cnpj: "", telefone: "", email: "",
+                    senha: "", cep: "", endereco: "", numero: "", bairro: "",
+                    estado: "", cidade: "", complemento: "", tipoPessoa: tipo
+                },
 
         validationSchema: cadastroFormSchema,
 
@@ -111,8 +118,7 @@ export default function Cadastro() {
                 });
 
                 if (!response.ok) {
-                    const err = await response.json();
-                    throw new Error(err.erro);
+                    throw new Error("Erro ao cadastrar usuário!");
                 }
 
             } catch (e) {
@@ -291,9 +297,9 @@ export default function Cadastro() {
                             change={formik.handleChange} />
                         <CustomInputView
                             label="Senha"
-                            name="senha" 
+                            name="senha"
                             value={formik.values.senha}
-                            change={formik.handleChange}/>
+                            change={formik.handleChange} />
 
                         <div style={{ width: "33%" }}>
                             <CustomInput

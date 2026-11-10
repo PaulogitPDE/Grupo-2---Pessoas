@@ -56,6 +56,7 @@ app.post('/cadPF', async (req, res) => {
                     cpf_cnpj,
                     data_nasc
                 )
+                OUTPUT INSERTED.*
                 VALUES(
                     @nome,
                     @email,
@@ -77,6 +78,7 @@ app.post('/cadPF', async (req, res) => {
                     cidade,
                     uf
                 ) 
+                OUTPUT INSERTED.*
                 VALUES(
                     @idUsuario,
                     @cep,
@@ -87,8 +89,6 @@ app.post('/cadPF', async (req, res) => {
                     @cidade,
                     @estado
                 );
-                
-                SELECT id_usuario, nome, email, telefone FROM USUARIO WHERE id_usuario = @idUsuario;    
                 `
             )
 
