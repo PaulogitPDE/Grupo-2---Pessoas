@@ -27,13 +27,11 @@ app.post('/cadPF', async (req, res) => {
         const estado = req.body.estado;
         const cidade = req.body.cidade;
         const complemento = req.body.complemento;
-        const tipoPessoa = req.body.tipoPessoa;
 
         const cn = await Conectar();
         const campo = await cn.request()
             .input("nome", sql.VarChar(100), nome)
             .input("cpf", sql.VarChar(18), cpf)
-            .input("tipoPessoa", sql.Char(1), tipoPessoa)
             .input("dataNasc", sql.Date, dataNasc)
             .input("telefone", sql.VarChar(20), telefone)
             .input("email", sql.VarChar(100), email)

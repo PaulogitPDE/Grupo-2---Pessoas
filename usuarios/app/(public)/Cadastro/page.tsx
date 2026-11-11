@@ -91,11 +91,11 @@ export default function Cadastro() {
 
     const formik = useFormik<ICadastroForm>({
         initialValues:
-            tipo === "PF" ? {
+            {
                 nome: "", cpf: "", dataNasc: undefined, telefone: "", email: "",
                 senha: "", cep: "", endereco: "", numero: "", bairro: "",
                 estado: "", cidade: "", complemento: ""
-            } : {},
+            },
 
         validationSchema: cadastroFormSchema,
 
@@ -113,9 +113,9 @@ export default function Cadastro() {
 
                 if (!response.ok) {
                     throw new Error("Erro ao cadastrar usuário!");
-                } else {
-                    alert(`O usuário ${formik.values.nome} foi cadastrado com sucesso!`)
                 }
+
+                alert("Parabéns!")
 
             } catch (e) {
                 alert("Erro ao cadastrar usuário!")
@@ -123,9 +123,7 @@ export default function Cadastro() {
             }
         }
     })
-
-    console.log(tipo);
-
+    
     const router = useRouter();
 
     const apiCEP = async () => {
@@ -385,7 +383,8 @@ export default function Cadastro() {
 
                         <CustomButton
                             title="Cadastrar-se"
-                            type="button"
+                            type="submit"
+                            onClick={formik.handleSubmit}
                             >
                         </CustomButton>
                     </CustomContainer>
