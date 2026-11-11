@@ -12,6 +12,36 @@ app.use(express.json());
 
 app.use(cors());
 
+app.get('/infoUsuario', async (req, res) => {
+    try {
+        const cn = await Conectar();
+        const resultado = await cn
+        .request()
+        .query(
+            `
+            SELECT
+                u.nome,
+                u.email,
+                u.senha,
+                e.cep,
+                e.logradouro,
+                e.numero,
+                e.complemento,
+                e.bairro,
+                e.cidade,
+                e.uf
+            FROM dbo.USUARIO u
+                INNER JOIN dbo.ENDERECO e ON u.id_usuario = e.id_endereco;
+            `
+        );
+        res.json(
+            resultado.recordset
+        );
+    } catch (e) {
+        res.json({ 'erro' : e.message})
+    }
+})
+
 app.post('/cadPF', async (req, res) => {
     try {
         const nome = req.body.nome;
