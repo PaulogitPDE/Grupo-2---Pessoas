@@ -87,7 +87,6 @@ export default function Cadastro() {
         estado?: string;
         cidade?: string;
         complemento?: string;
-        tipoPessoa?: string;
     }
 
     const formik = useFormik<ICadastroForm>({
@@ -95,13 +94,8 @@ export default function Cadastro() {
             tipo === "PF" ? {
                 nome: "", cpf: "", dataNasc: undefined, telefone: "", email: "",
                 senha: "", cep: "", endereco: "", numero: "", bairro: "",
-                estado: "", cidade: "", complemento: "", tipoPessoa: tipo
-            }
-                : {
-                    razaoSocial: "", nomeFantasia: "", cnpj: "", telefone: "", email: "",
-                    senha: "", cep: "", endereco: "", numero: "", bairro: "",
-                    estado: "", cidade: "", complemento: "", tipoPessoa: tipo
-                },
+                estado: "", cidade: "", complemento: ""
+            } : {},
 
         validationSchema: cadastroFormSchema,
 
@@ -119,6 +113,8 @@ export default function Cadastro() {
 
                 if (!response.ok) {
                     throw new Error("Erro ao cadastrar usuário!");
+                } else {
+                    alert(`O usuário ${formik.values.nome} foi cadastrado com sucesso!`)
                 }
 
             } catch (e) {
@@ -127,6 +123,8 @@ export default function Cadastro() {
             }
         }
     })
+
+    console.log(tipo);
 
     const router = useRouter();
 
@@ -387,7 +385,8 @@ export default function Cadastro() {
 
                         <CustomButton
                             title="Cadastrar-se"
-                            type="submit">
+                            type="button"
+                            >
                         </CustomButton>
                     </CustomContainer>
                 </form>
