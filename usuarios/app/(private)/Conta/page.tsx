@@ -13,19 +13,19 @@ import { useFormik, FormikProvider } from "formik";
 import { useRouter } from "next/navigation";
 import { CustomContainerAdocao } from "@/components/CustomContainerAdocao/CustomContainerAdocao";
 
-export default function Conta(){
+export default function Conta() {
 
     const opcoes = [
-        {id: "1", value: "Cachorro", label: "Cachorro"},
-        {id: "2", value: "Gato", label: "Gato"},
-        {id: "3", value: "Peixe", label: "Peixe"},
-        {id: "4", value: "Pássaro", label: "Pássaro"},
-        {id: "5", value: "Hamster", label: "Hamster"},
-        {id: "6", value: "Porquinho da Índia", label: "Porquinho da Índia"},
-        {id: "7", value: "Saruê", label: "Saruê"},
+        { id: "1", value: "Cachorro", label: "Cachorro" },
+        { id: "2", value: "Gato", label: "Gato" },
+        { id: "3", value: "Peixe", label: "Peixe" },
+        { id: "4", value: "Pássaro", label: "Pássaro" },
+        { id: "5", value: "Hamster", label: "Hamster" },
+        { id: "6", value: "Porquinho da Índia", label: "Porquinho da Índia" },
+        { id: "7", value: "Saruê", label: "Saruê" },
     ]
 
-    
+
 
     const formik = useFormik({
         initialValues: {
@@ -40,50 +40,50 @@ export default function Conta(){
             numero: "279",
             cidade: "Votorantim",
             bairro: "Centro"
-        },        
- 
-        onSubmit: () => {}
+        },
+
+        onSubmit: () => { }
     });
 
-    
+
     const router = useRouter();
 
     const opcoesUF = [
-        {id: "1", value: "AC", label: "Acre"},
-        {id: "2", value: "AL", label: "Alagoas"},
-        {id: "3", value: "AM", label: "Amazonas"},
-        {id: "4", value: "BA", label: "Bahia"},
-        {id: "5", value: "CE", label: "Ceará"},
-        {id: "6", value: "DF", label: "Distrito Federal"},
-        {id: "7", value: "ES", label: "Espírito Santo"},
-        {id: "8", value: "GO", label: "Goiás"},
-        {id: "9", value: "MA", label: "Maranhão"},
-        {id: "10", value: "MT", label: "Mato Grosso"},
-        {id: "11", value: "MS", label: "Mato Grosso do Sul"},
-        {id: "12", value: "MG", label: "Minas Gerais"},
-        {id: "13", value: "PA", label: "Pará"},
-        {id: "14", value: "PB", label: "Paraíba"},
-        {id: "15", value: "PR", label: "Paraná"},
-        {id: "16", value: "PE", label: "Pernambuco"},
-        {id: "17", value: "PI", label: "Piauí"},
-        {id: "18", value: "RJ", label: "Rio de Janeiro"},
-        {id: "19", value: "RN", label: "Rio Grande do Norte"},
-        {id: "20", value: "RS", label: "Rio Grande do Sul"},
-        {id: "21", value: "RO", label: "Rondônia"},
-        {id: "22", value: "RR", label: "Roraima"},
-        {id: "23", value: "SC", label: "Santa Catarina"},
-        {id: "24", value: "SP", label: "São Paulo"},
-        {id: "25", value: "SE", label: "Sergipe"},
-        {id: "26", value: "TO", label: "Tocantins"}
+        { id: "1", value: "AC", label: "Acre" },
+        { id: "2", value: "AL", label: "Alagoas" },
+        { id: "3", value: "AM", label: "Amazonas" },
+        { id: "4", value: "BA", label: "Bahia" },
+        { id: "5", value: "CE", label: "Ceará" },
+        { id: "6", value: "DF", label: "Distrito Federal" },
+        { id: "7", value: "ES", label: "Espírito Santo" },
+        { id: "8", value: "GO", label: "Goiás" },
+        { id: "9", value: "MA", label: "Maranhão" },
+        { id: "10", value: "MT", label: "Mato Grosso" },
+        { id: "11", value: "MS", label: "Mato Grosso do Sul" },
+        { id: "12", value: "MG", label: "Minas Gerais" },
+        { id: "13", value: "PA", label: "Pará" },
+        { id: "14", value: "PB", label: "Paraíba" },
+        { id: "15", value: "PR", label: "Paraná" },
+        { id: "16", value: "PE", label: "Pernambuco" },
+        { id: "17", value: "PI", label: "Piauí" },
+        { id: "18", value: "RJ", label: "Rio de Janeiro" },
+        { id: "19", value: "RN", label: "Rio Grande do Norte" },
+        { id: "20", value: "RS", label: "Rio Grande do Sul" },
+        { id: "21", value: "RO", label: "Rondônia" },
+        { id: "22", value: "RR", label: "Roraima" },
+        { id: "23", value: "SC", label: "Santa Catarina" },
+        { id: "24", value: "SP", label: "São Paulo" },
+        { id: "25", value: "SE", label: "Sergipe" },
+        { id: "26", value: "TO", label: "Tocantins" }
     ]
 
-    return(
+    return (
         <>
-            <h1 style={{justifySelf: "center", color: "#348888"}}>Seu Perfil</h1>
+            <h1 style={{ justifySelf: "center", color: "#348888" }}>Seu Perfil</h1>
             <FormikProvider value={formik}>
                 <form>
                     <CustomContainerProfile title="Perfil">
-                        <div style={{display: "flex", flexDirection: "column", width: "50%"}}>
+                        <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
                             <CustomInputEdit
                                 label="Nome completo"
                                 type="text"
@@ -96,112 +96,112 @@ export default function Conta(){
 
                             <CustomSelect name="animalFavorito" label="Qual o seu animal favorito?" change={formik.handleChange} options={opcoes} ></CustomSelect>
                         </div>
-                        <div style={{display: "flex", flexDirection: "column", width: "50%"}}>
+                        <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
                             <CustomProfilePicture></CustomProfilePicture>
                         </div>
-                
+
                     </CustomContainerProfile>
 
                     <CustomContainerAdocao title="Adoção">
                         <h2>Gostaria de adotar um animal?</h2>
-                        <p style={{fontSize: "18px"}}>
+                        <p style={{ fontSize: "18px" }}>
                             Realize já o formulário de adoção para provar que é apto(a) para adotar e cuidar de um animalzinho!
                         </p>
-                        <p style={{fontSize: "18px"}}>
+                        <p style={{ fontSize: "18px" }}>
                             Neste bloco, você poderá observar o progresso do processo de adoção!
                         </p>
-                        <CustomButton 
-                            title="Formulário de Adoção" 
-                            type="button" 
+                        <CustomButton
+                            title="Formulário de Adoção"
+                            type="button"
                             onClick={() => router.push('/Form_Adocao')} />
                     </CustomContainerAdocao>
 
                     <CustomContainerAdocao title="Festa Do Pijama">
                         <h2>Cuidar de um animal é a sua praia?</h2>
-                        <p style={{fontSize: "18px", width: "60%"}}>
+                        <p style={{ fontSize: "18px", width: "60%" }}>
                             Se você <strong>mora em Votorantim</strong>, e demonstra um grande compromisso quando estamos falando de cuidar de animas, inscreva-se no nosso mais novo programa <strong>Festa do Pijama!</strong> Temos como finalidade, a oferta de <strong>lares temporários</strong> para animais selecionados, podendo passar períodos curtos, como <strong>finais de semana ou feriados</strong> com você!
                         </p>
-                        <CustomButton 
-                            title="Formulário da Festa do Pijama" 
-                            type="button" 
+                        <CustomButton
+                            title="Formulário da Festa do Pijama"
+                            type="button"
                             onClick={() => router.push('/Form_FestaPijama')} />
                     </CustomContainerAdocao>
 
                     <CustomContainerProfile title="Dados Pessoais">
-                        <div style={{display: "flex", flexDirection: "column", width: "50%"}}>
-                            <CustomInput 
-                                type="text" 
-                                label="E-mail" 
+                        <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
+                            <CustomInput
+                                type="text"
+                                label="E-mail"
                                 name="email"
                                 value={formik.values.email}
-                                change={formik.handleChange}/>
+                                change={formik.handleChange} />
 
-                            <div style={{display: "flex", gap: "10%"}}>
-                                <CustomInputView label="Senha" name="senhaConta" value={formik.values.senhaConta} change={formik.handleChange}/>
-                                <CustomButton title="Redefinir Senha" type='button' name="redefSenhaConta" onClick={() => router.push('/Esq_senha')}/>
+                            <div style={{ display: "flex", gap: "10%" }}>
+                                <CustomInputView label="Senha" name="senhaConta" value={formik.values.senhaConta} change={formik.handleChange} />
+                                <CustomButton title="Redefinir Senha" type='button' name="redefSenhaConta" onClick={() => router.push('/Esq_senha')} />
                             </div>
                         </div>
-                        
+
                         <div>
-                            <CustomInputSearch 
-                                label="CEP" 
+                            <CustomInputSearch
+                                label="CEP"
                                 name="cep"
                                 value={formik.values.cep}
                                 change={formik.handleChange} />
-                            <table style={{width: "100%"}}>
+                            <table style={{ width: "100%" }}>
                                 <tbody>
                                     <tr>
                                         <td colSpan={2}>
                                             <CustomInput
-                                            type="text"
-                                            label="Endereço"
-                                            name="endereco"
-                                            value={formik.values.endereco}
-                                            change={formik.handleChange}
+                                                type="text"
+                                                label="Endereço"
+                                                name="endereco"
+                                                value={formik.values.endereco}
+                                                change={formik.handleChange}
                                             />
                                         </td>
                                         <td>
                                             <CustomSelect
-                                            label="Estado"
-                                            name="estado"
-                                            id="uf"
-                                            options={opcoesUF}
-                                            value={formik.values.estado}
-                                            change={formik.handleChange}
+                                                label="Estado"
+                                                name="estado"
+                                                id="uf"
+                                                options={opcoesUF}
+                                                value={formik.values.estado}
+                                                change={formik.handleChange}
                                             />
-                                            
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            
+
                                             <CustomInput
-                                            type="text"
-                                            label="Número"
-                                            name="numero"
-                                            value={formik.values.numero}
-                                            change={formik.handleChange}
+                                                type="text"
+                                                label="Número"
+                                                name="numero"
+                                                value={formik.values.numero}
+                                                change={formik.handleChange}
                                             />
                                         </td>
                                         <td>
                                             <CustomInput
-                                            type="text"
-                                            label="Cidade"
-                                            name="cidade"
-                                            value={formik.values.cidade}
-                                            change={formik.handleChange}
-                                            />  
+                                                type="text"
+                                                label="Cidade"
+                                                name="cidade"
+                                                value={formik.values.cidade}
+                                                change={formik.handleChange}
+                                            />
                                         </td>
                                         <td>
-                                            
+
                                             <CustomInput
-                                            type="text"
-                                            label="Bairro"
-                                            name="bairro"
-                                            value={formik.values.bairro}
-                                            change={formik.handleChange}                                            
+                                                type="text"
+                                                label="Bairro"
+                                                name="bairro"
+                                                value={formik.values.bairro}
+                                                change={formik.handleChange}
                                             />
-                                            
+
                                         </td>
                                     </tr>
                                 </tbody>
