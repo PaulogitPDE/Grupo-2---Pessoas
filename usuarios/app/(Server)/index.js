@@ -134,6 +134,23 @@ app.post('/cadPF', async (req, res) => {
     }
 })
 
+app.get("/usuarioSelecionado/:id", async (req, res) => {
+  // parametro via http (url)
+  const id = parseInt(req.params.id);
+
+  const cn = await Conectar();
+  const resultado = await cn.request()
+    .input('id', sql.Int, id)
+    .query(`
+      SELECT * FROM USUARIO
+        WHERE id_usuario = @id
+    `)
+
+  // resultado.rowAffected[0]
+    res.json({ "Usuário selecionado": resultado.recordset })
+})
+
+
 app.listen(port, () => {
   console.log(`servidor http://localhost:${port}`);
 })
